@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/searchcommodity_bg"
+        android:focusable="true"
+        android:gravity="center_horizontal"
+        android:focusableInTouchMode="true" >
+
+        <EditText
+            android:id="@+id/auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/searchcommodity_bg"
+            android:hint="@string/searchaddress"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:gravity="center"
+            android:textColor="@color/common_grey_word"
+            android:textColorHint="@color/common_grey_word"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/mang"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_toLeftOf="@id/auto"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:contentDescription="@color/transparent"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/manger" />
+    </RelativeLayout>
+
+    <ListView 
+        android:id="@+id/travellv"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="5dp"
+        android:listSelector="@color/transparent"
+        android:background="@drawable/travellvshape"
+        android:divider="#F7F7F7"/>
+</LinearLayout>

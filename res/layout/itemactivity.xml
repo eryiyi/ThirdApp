@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="3dp"
+    android:layout_height="wrap_content"
+    android:background="@color/header_background" >
+
+    <ImageView
+        android:id="@+id/actimage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:contentDescription="@color/transparent"
+        android:src="@drawable/sun" />
+
+    <TextView
+        android:id="@+id/actname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/common_greythird"
+        android:layout_toRightOf="@id/actimage"
+        android:text="@string/demo"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/actdescription"
+        android:layout_width="wrap_content"
+        android:layout_marginRight="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/actname"
+        android:textColor="@color/common_greythird"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:singleLine="true"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/actimage"
+        android:text="@string/demo"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/acttime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/actimage"
+        android:layout_alignBottom="@id/actdescription"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:text="@string/demo"
+        android:singleLine="true"
+         android:textSize="12sp"
+        android:textColor="@color/red" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/actdescription"
+        android:layout_below="@id/actname"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:singleLine="true"
+        android:textColor="@color/common_greythird"
+        android:textSize="12sp"
+        android:layout_marginRight="3dp"
+        android:layout_toLeftOf="@id/acttime"
+        android:text="@string/acttimetext" />
+
+</RelativeLayout>

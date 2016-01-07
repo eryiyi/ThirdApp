@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/titlemany" >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@color/transparent"
+            android:padding="10dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:text="@string/study"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@color/transparent"
+            android:padding="10dp"
+            android:scaleX="0.8"
+            android:scaleY="0.9"
+            android:src="@drawable/menu" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:background="@drawable/studytop" >
+
+        <ImageView
+            android:id="@+id/stdimg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:contentDescription="@color/transparent"
+            android:scaleType="fitXY"
+            android:src="@drawable/demo3" />
+
+        <TextView
+            android:id="@+id/stdname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/stdimg"
+            android:text="@string/demo" />
+
+        <TextView
+            android:id="@+id/stdcontent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/stdname"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/stdimg"
+            android:text="@string/demo"
+            android:textColor="@color/common_greythird"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/stdcontent"
+            android:layout_marginRight="5dp"
+            android:paddingBottom="5dp"
+            android:text="@string/demo"
+            android:id="@+id/study_time"
+            android:textColor="@color/common_greythird"
+            android:textSize="11sp" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/title3"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@id/title2"
+        android:background="@color/common_grey_word" />
+
+    <TextView
+        android:id="@+id/allanswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title3"
+        android:gravity="center"
+        android:padding="3dp"
+        android:text="@string/allanswer"
+        android:textColor="@color/common_greythird" />
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@drawable/studybottom"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:contentDescription="@color/transparent"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:src="@drawable/voice" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="3"
+            android:background="@drawable/searchcommodity_bg"
+            android:gravity="center"
+            android:id="@+id/replyContent"
+            android:hint="@string/ianswer"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/send"
+            android:id="@+id/sendbtn"
+            android:textColor="@color/common_greythird"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom"
+        android:layout_below="@id/allanswer"
+        android:divider="@color/white"
+        android:dividerHeight="3dp" />
+
+</RelativeLayout>

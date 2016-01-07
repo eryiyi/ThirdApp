@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:padding="3dp"
+                android:background="@drawable/zhuye_item_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+    <ImageView android:layout_width="wrap_content"
+               android:src="@drawable/house_one"
+               android:layout_gravity="center"
+               android:padding="3dp"
+               android:id="@+id/pic"
+               android:layout_height="wrap_content"/>
+    <TextView android:layout_width="wrap_content"
+              android:text="dianshi"
+              android:layout_gravity="center"
+              android:gravity="center"
+              android:id="@+id/title"
+              android:textSize="12sp"
+              android:textColor="@color/black"
+              android:layout_height="wrap_content"/>
+</LinearLayout>

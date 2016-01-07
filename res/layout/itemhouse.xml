@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/zhuye_item_select"
+    android:paddingBottom="5dp">
+    
+	<ImageView
+        android:id="@+id/imagehouse"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:scaleType="fitXY"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:contentDescription="@color/transparent"
+        android:src="@drawable/demohouse" />
+	
+	<TextView
+        android:id="@+id/namehouse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/imagehouse"
+        android:text="@string/demo"
+        android:textColor="@color/common_greythird"
+        android:layout_marginTop="5dp"
+        android:textSize="14sp" />
+	
+	<TextView
+        android:id="@+id/descriptionhouse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/namehouse"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:textSize="12sp"
+        android:textColor="@color/common_greythird"
+        android:layout_toRightOf="@id/imagehouse"
+        android:text="@string/demo"/>
+	
+	<TextView
+        android:id="@+id/pricehouse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBottom="@id/imagehouse"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/imagehouse"
+        android:text="@string/demo"
+        android:textSize="14sp"
+        android:textColor="@color/red" />
+	
+	<TextView
+        android:id="@+id/accuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="11sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@id/imagehouse"
+        android:text="@string/demo"
+        android:layout_marginRight="15dp"
+        android:textColor="@color/common_greythird"/>
+</RelativeLayout>

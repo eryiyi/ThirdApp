@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.thirdapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.thirdapp.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.thirdapp.activity.AdvertisementDetail" />
+        <activity android:name="com.example.thirdapp.activity.MakeFriends" />
+        <activity android:name="com.example.thirdapp.activity.Rechange" />
+        <activity android:name="com.example.thirdapp.activity.Forum" />
+        <activity android:name="com.example.thirdapp.activity.Hotel" />
+        <activity android:name="com.example.thirdapp.activity.Convenience" />
+        <activity android:name="com.example.thirdapp.activity.Activity" />
+        <activity android:name="com.example.thirdapp.activity.Integral" />
+        <activity android:name="com.example.thirdapp.activity.Study" />
+        <activity android:name="com.example.thirdapp.activity.StudyDetail" />
+        <activity android:name="com.example.thirdapp.activity.StudyLast" />
+        <activity android:name="com.example.thirdapp.activity.PropertyDetail" />
+        <activity android:name="com.example.thirdapp.activity.TravelDetail" />
+        <activity android:name="com.example.thirdapp.activity.ToBePaid" />
+        <activity android:name="com.example.thirdapp.activity.ToBeShipped" />
+        <activity android:name="com.example.thirdapp.activity.ToBeEvaluate" />
+        <activity android:name="com.example.thirdapp.activity.ToBeReceive" />
+        <activity android:name="com.example.thirdapp.activity.ToBeRefund" />
+        <activity android:name="com.example.thirdapp.activity.AllOrder" />
+        <activity android:name="com.example.thirdapp.activity.Wallet" />
+        <activity android:name="com.example.thirdapp.activity.Coupons" />
+        <activity android:name="com.example.thirdapp.activity.VouchersAct" />
+        <activity android:name="com.example.thirdapp.activity.WalletFu" />
+        <activity android:name="com.example.thirdapp.activity.ActivityDetail" />
+        <activity android:name="com.example.thirdapp.activity.Message" />
+        <activity android:name="com.example.thirdapp.activity.SearchActivity" />
+        <activity android:name="com.example.thirdapp.activity.CommodityList" />
+        <activity android:name="com.example.thirdapp.activity.ComDetail" />
+        <activity android:name="com.example.thirdapp.activity.ComClass" />
+        <activity android:name="com.example.thirdapp.activity.MfDetail" />
+        <activity android:name="com.example.thirdapp.activity.RegisterDetail" />
+        <activity android:name="com.example.thirdapp.activity.ChoiceVillage" />
+        <activity android:name="com.zxing.activity.CaptureActivity" />
+        <activity android:name="com.example.thirdapp.activity.Logon" />
+        <activity android:name="com.example.thirdapp.activity.Register" />
+        <activity android:name="com.example.thirdapp.activity.ShoppingCart" />
+        <activity android:name="com.example.thirdapp.activity.Setting" />
+        <activity android:name="com.example.thirdapp.activity.PersonMsg" />
+        <activity android:name="com.example.thirdapp.activity.VillageNumber" />
+        <activity android:name="com.example.thirdapp.activity.FeedBack" />
+        <activity android:name="com.example.thirdapp.activity.MyMessage" />
+        <activity android:name="com.example.thirdapp.activity.Xq" />
+        <activity android:name="com.image.view.TestSort" />
+    </application>
+
+</manifest>

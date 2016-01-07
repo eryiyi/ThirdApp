@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/vaimage"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:contentDescription="@color/transparent"
+        android:src="@drawable/democom2" />
+
+    <TextView
+        android:id="@+id/vaname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/vaimage"
+        android:paddingRight="3dp"
+        android:text="@string/demo"  />
+
+    <TextView
+        android:id="@+id/valimited"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vaname"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@id/vaimage"
+        android:text="@string/demo"
+        android:textColor="@color/common_grey_word"
+        android:textSize="12sp" />
+
+     <TextView
+        android:id="@+id/vaintegral"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBottom="@id/vaimage"
+        android:layout_toRightOf="@id/vaimage"
+        android:text="@string/demo"
+        android:textSize="15sp"
+        android:textColor="@color/redstandard" />
+     
+     <TextView
+        android:id="@+id/vapriceoriginal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/vaintegral"
+        android:layout_below="@id/namecom"
+        android:text="@string/demo"
+        android:textColor="@color/common_grey_word"
+        android:textSize="11sp"
+        android:layout_alignBaseline="@id/vaintegral" />
+     
+     <ImageView 
+         android:layout_width="60dp"
+         android:layout_height="25dp"
+         android:contentDescription="@color/transparent"
+         android:src="@drawable/wantagainst"
+         android:layout_alignParentRight="true"
+         android:layout_alignBottom="@id/vaimage"
+         android:layout_marginRight="5dp" />
+     
+     
+</RelativeLayout>

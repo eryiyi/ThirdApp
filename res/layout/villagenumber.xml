@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/titlemany" >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@color/transparent"
+            android:padding="10dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:text="@string/propertyphone"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <TextView 
+        android:id="@+id/nonumber"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/nonumber"
+        android:gravity="center"
+        android:visibility="gone"/>
+    
+    <ListView 
+        android:id="@+id/numberlv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="5dp"
+        android:divider="@color/common_grey_background"
+        android:listSelector="@color/transparent" />
+</LinearLayout>

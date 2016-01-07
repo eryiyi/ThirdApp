@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/titlemany" >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@color/transparent"
+            android:padding="10dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:text="@string/activity"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@color/transparent"
+            android:padding="10dp"
+            android:scaleX="0.8"
+            android:scaleY="0.9"
+            android:src="@drawable/menu" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/searchcommodity_bg"
+        android:focusable="true"
+        android:gravity="center_horizontal"
+        android:focusableInTouchMode="true" >
+
+        <EditText
+            android:id="@+id/auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/searchcommodity_bg"
+            android:gravity="center"
+            android:hint="@string/searchkey"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:textColor="@color/common_grey_word"
+            android:textColorHint="@color/common_grey_word"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/mang"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:layout_toLeftOf="@id/auto"
+            android:contentDescription="@color/transparent"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/manger" />
+    </RelativeLayout>
+
+   <View 
+       android:layout_width="match_parent"
+       android:layout_height="0.005dp"
+       android:background="@color/header_background"/>
+
+   <com.example.thirdapp.view.MyListViewUpDown
+        android:id="@+id/activitylv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="3dp"
+        android:divider="@color/white"
+        android:listSelector="@color/transparent" />
+   
+</LinearLayout>

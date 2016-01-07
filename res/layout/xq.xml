@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/titlemany" >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@color/transparent"
+            android:padding="10dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:text="@string/locationvillage"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:background="@drawable/searchcommodity_bg"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_horizontal" >
+
+        <EditText
+            android:id="@+id/auto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/searchcommodity_bg"
+            android:gravity="center"
+            android:hint="@string/searchkey"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:textColor="@color/common_grey_word"
+            android:textColorHint="@color/common_grey_word"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/mang"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dip"
+            android:layout_toLeftOf="@id/auto"
+            android:contentDescription="@color/transparent"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            android:src="@drawable/manger" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.05dp"
+        android:background="@color/divider_color" />
+
+    <RelativeLayout
+        android:id="@+id/choicestreet"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/villabackground" >
+
+        <TextView
+            android:id="@+id/street"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="@string/choiceaddress"
+            android:textColor="@color/common_greythird"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/arrow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@color/transparent"
+            android:src="@drawable/arrowright" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:layout_toLeftOf="@id/arrow1"
+            android:text="@string/exchange"
+            android:textColor="@color/common_greythird"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/choicevillages"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/villabackground" >
+
+        <TextView
+            android:id="@+id/village"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="@string/choicevillages"
+            android:textColor="@color/common_greythird"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/arrow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@color/transparent"
+            android:src="@drawable/arrowright" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:layout_toLeftOf="@id/arrow2"
+            android:text="@string/exchange"
+            android:textColor="@color/common_greythird"
+            android:textSize="13sp" />
+    </RelativeLayout>
+    <TextView android:layout_width="match_parent"
+              android:text="地址"
+              android:layout_marginLeft="8dp"
+              android:layout_gravity="center"
+              android:id="@+id/address"
+              android:textColor="@color/black"
+              android:gravity="center_vertical"
+              android:drawableLeft="@drawable/xx_4"
+              android:layout_height="wrap_content"/>
+    <View android:layout_width="match_parent"
+          android:background="@color/lightblue"
+          android:layout_height="0.1dp"></View>
+    <RelativeLayout android:layout_width="match_parent"
+                    android:background="@color/white"
+                    android:layout_height="match_parent">
+        <ListView android:layout_width="match_parent"
+                  android:id="@+id/lstv"
+                  android:layout_height="match_parent"
+                  android:cacheColorHint="#00000000"
+                  android:divider="#e9e9e9"
+                  android:dividerHeight="0.5dp"
+                  android:fadingEdge="none"
+                  android:fastScrollEnabled="false"
+                  android:footerDividersEnabled="false"
+                  android:headerDividersEnabled="false"
+                  android:smoothScrollbar="true"
+                >
+        </ListView>
+        <ImageView android:layout_width="wrap_content"
+                   android:id="@+id/no_collection"
+                   android:layout_centerInParent="true"
+                   android:src="@drawable/collect_no_good"
+                   android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

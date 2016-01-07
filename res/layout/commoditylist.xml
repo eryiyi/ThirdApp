@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/titlemany" >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@color/transparent"
+            android:padding="10dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:text="@string/mall"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/screening"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@color/transparent"
+            android:scaleX="0.8"
+            android:scaleY="0.9"
+            android:src="@drawable/screening" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/catalog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_grey_background"
+        android:baselineAligned="false"
+        android:visibility="gone"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/allcq"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/comprehensive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@color/transparent"
+                android:padding="8dp"
+                android:scaleX="0.6"
+                android:scaleY="0.7"
+                android:src="@drawable/comprehensive" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/salevolume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@color/transparent"
+                android:padding="8dp"
+                android:scaleX="0.6"
+                android:scaleY="0.7"
+                android:src="@drawable/salevolume" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/livingroom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@color/transparent"
+                android:padding="8dp"
+                android:scaleX="0.6"
+                android:scaleY="0.7"
+                android:src="@drawable/price" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.example.thirdapp.view.MyListViewUpDown
+        android:id="@+id/comlistlv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:listSelector="@color/transparent" >
+    </com.example.thirdapp.view.MyListViewUpDown>
+
+</LinearLayout>

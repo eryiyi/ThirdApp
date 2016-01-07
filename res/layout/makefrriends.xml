@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_grey_background"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/titlemany" >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@color/transparent"
+            android:padding="10dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:text="@string/makefriends"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@color/transparent"
+            android:padding="10dp"
+            android:scaleX="0.8"
+            android:scaleY="0.9"
+            android:src="@drawable/menu" />
+    </RelativeLayout>
+
+    <com.example.thirdapp.view.PullToRefreshView
+        android:id="@+id/mfpullrefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/searchcommodity_bg"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center_horizontal" >
+
+                    <EditText
+                        android:id="@+id/auto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="3dp"
+                        android:background="@drawable/searchcommodity_bg"
+                        android:gravity="center"
+                        android:hint="@string/searchkey"
+                        android:imeOptions="actionSearch"
+                        android:singleLine="true"
+                        android:textColor="@color/common_grey_word"
+                        android:textColorHint="@color/common_grey_word"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:textSize="13sp" />
+
+                    <ImageView
+                        android:id="@+id/mang"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dip"
+                        android:layout_marginTop="10dip"
+                        android:layout_toRightOf="@id/auto"
+                        android:contentDescription="@color/transparent"
+                        android:scaleX="0.8"
+                        android:scaleY="0.8"
+                        android:src="@drawable/manger" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.005dp"
+                    android:background="@color/header_background" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:id="@+id/liner_top"
+                    android:orientation="horizontal" >
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3" >
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical" >
+
+                                <ImageView
+                                    android:id="@+id/image1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:contentDescription="@color/transparent"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/mf1" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="8" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:background="@color/white"
+                                android:orientation="horizontal"
+                                android:paddingBottom="5dp" >
+
+                                <TextView
+                                    android:id="@+id/name"
+                                    android:layout_width="0dp"
+                                    android:singleLine="true"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginBottom="2dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/demotwo"
+                                    android:textColor="@color/common_greythird"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/age"
+                                    android:layout_width="0dp"
+                                    android:singleLine="true"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginBottom="2dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/demotwo"
+                                    android:textColor="@color/common_greythird"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/height"
+                                    android:layout_width="0dp"
+                                    android:singleLine="true"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginBottom="2dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/demotwo"
+                                    android:textColor="@color/common_greythird"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/weight"
+                                    android:layout_width="0dp"
+                                    android:singleLine="true"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginBottom="2dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/demotwo"
+                                    android:textColor="@color/common_greythird"
+                                    android:textSize="12sp" />
+
+                                <ImageView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.5"
+                                    android:contentDescription="@color/transparent"
+                                    android:src="@drawable/bigcrown" />
+                            </LinearLayout>
+                        </FrameLayout>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:orientation="vertical" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical" >
+
+                            <ImageView
+                                android:id="@+id/image2"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="5"
+                                android:contentDescription="@color/transparent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/mf2" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:singleLine="true"
+                                android:background="@color/white"
+                                android:gravity="center"
+                                android:text="@string/demotwo"
+                                android:id="@+id/name2"
+                                android:textColor="@color/common_greythird"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical" >
+
+                            <ImageView
+                                android:id="@+id/image3"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="5"
+                                android:contentDescription="@color/transparent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/mf3" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:singleLine="true"
+                                android:layout_weight="1"
+                                android:background="@color/white"
+                                android:gravity="center"
+                                android:text="@string/demotwo"
+                                android:id="@+id/name3"
+                                android:textColor="@color/common_greythird"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.example.thirdapp.view.MyGridview
+                    android:id="@+id/mfgv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:numColumns="3"
+                    android:layout_marginTop="2dp"
+                    android:horizontalSpacing="2dp"
+                    android:verticalSpacing="2dp" />
+            </LinearLayout>
+        </ScrollView>
+    </com.example.thirdapp.view.PullToRefreshView>
+
+</LinearLayout>

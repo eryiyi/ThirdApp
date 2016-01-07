@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/titlemany" >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@color/transparent"
+            android:padding="10dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:text="@string/activity"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@color/transparent"
+            android:padding="10dp"
+            android:scaleX="0.8"
+            android:visibility="gone"
+            android:scaleY="0.9"
+            android:src="@drawable/menu" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_grey_background" >
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@color/transparent"
+            android:src="@drawable/sun" />
+
+        <TextView
+            android:id="@+id/actname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_centerInParent="true"
+            android:text="@string/demo" />
+    </RelativeLayout>
+
+     <FrameLayout
+        android:id="@+id/framevp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true" >
+         <!--<ImageView android:layout_width="match_parent"-->
+                    <!--android:scaleType="fitXY"-->
+                    <!--android:id="@+id/mine_img"-->
+                    <!--android:layout_height="200dp"/>-->
+         <RelativeLayout
+                 android:layout_width="match_parent"
+                 android:id="@+id/banner"
+                 android:layout_weight="1"
+                 android:layout_height="200dp" >
+             <android.support.v4.view.ViewPager
+                     android:id="@+id/viewpager"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent" >
+             </android.support.v4.view.ViewPager>
+
+             <LinearLayout
+                     android:id="@+id/viewGroup"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:gravity="right"
+                     android:layout_alignParentBottom="true"
+                     android:layout_centerHorizontal="true"
+                     android:layout_marginRight="5dp"
+                     android:layout_marginLeft="5dp"
+                     android:orientation="horizontal"
+                     android:paddingBottom="5dp"
+                     android:paddingTop="1dp" >
+             </LinearLayout>
+         </RelativeLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/common_greythird"
+            android:text="@string/actname" />
+
+        <TextView
+            android:id="@+id/actclass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/common_greythird"
+            android:text="@string/demo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/common_greythird"
+            android:text="@string/actrule" />
+
+        <TextView
+            android:id="@+id/actrule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/common_greythird"
+            android:text="@string/demo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/common_greythird"
+            android:text="@string/registrationtime" />
+
+        <TextView
+            android:id="@+id/registrationtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/red"
+            android:text="@string/demo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/common_greythird"
+            android:layout_height="wrap_content"
+            android:text="@string/competitiontime" />
+
+        <TextView
+            android:id="@+id/competitiontime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:layout_marginLeft="5dp"
+            android:text="@string/demo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/common_greythird"
+            android:text="@string/competitionaddress" />
+
+        <TextView
+            android:id="@+id/competitionaddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/common_greythird"
+            android:layout_marginLeft="5dp"
+            android:text="@string/demo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/common_greythird"
+            android:layout_height="wrap_content"
+            android:text="@string/registrationphone" />
+
+        <TextView
+            android:id="@+id/registrationphone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/common_greythird"
+            android:layout_marginLeft="5dp"
+            android:text="@string/demo" />
+    </LinearLayout>
+
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        android:text="@string/longest"/>
+</LinearLayout>

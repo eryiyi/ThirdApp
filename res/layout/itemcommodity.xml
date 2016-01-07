@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="6dp"
+    android:background="@drawable/zhuye_item_select"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mm_contact_title"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp" >
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="3dp"
+            android:contentDescription="@color/translucent"
+            android:src="@drawable/floor1" />
+
+        <TextView
+            android:id="@+id/catalog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:text="@string/supermarket"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/cataname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:text="@string/supermarket"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imagebig"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:contentDescription="@color/transparent"
+        android:layout_below="@id/linear"
+        android:scaleType="centerCrop"
+        android:padding="2dp"
+        android:src="@drawable/democom1" />
+
+    <TextView
+        android:id="@+id/promotioncom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/imagebig"
+        android:layout_below="@id/linear"
+        android:background="@drawable/promotionshape"
+        android:paddingBottom="1dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:paddingTop="1dp"
+        android:text="@string/demo"
+        android:textColor="@color/redstandard"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/namecom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/promotioncom"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/imagebig"
+        android:text="@string/demo"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/pricecom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/namecom"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/imagebig"
+        android:text="@string/demo"
+        android:textColor="@color/redstandard"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/priceoriginalcom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/pricecom"
+        android:layout_below="@id/namecom"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/pricecom"
+        android:text="@string/demo"
+        android:textSize="11sp" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignBaseline="@id/imagebig"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/namecom"
+        android:id="@+id/carImg"
+        android:layout_marginRight="20dp"
+        android:contentDescription="@color/transparent"
+        android:src="@drawable/shoppingcartcom" />
+
+</RelativeLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_grey_background"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:layout_marginLeft="8dp"
+            android:padding="5dp"
+            android:contentDescription="@color/transparent"
+            android:src="@drawable/sharewx" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:padding="5dp"
+            android:contentDescription="@color/transparent"
+            android:src="@drawable/shareqq" />
+
+       <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:padding="5dp"
+            android:contentDescription="@color/transparent"
+            android:src="@drawable/sharexl" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:padding="5dp"
+            android:contentDescription="@color/transparent"
+            android:src="@drawable/sharepyq" />
+
+      <ImageView
+          android:id="@+id/sharemsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:layout_marginRight="8dp"
+            android:padding="5dp"
+            android:contentDescription="@color/transparent"
+            android:src="@drawable/sharemsg" />
+    </LinearLayout>
+
+    <ImageView 
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:contentDescription="@color/transparent"
+        android:src="@drawable/cancel"/>
+</LinearLayout>

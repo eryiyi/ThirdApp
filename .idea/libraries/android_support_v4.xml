@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="android-support-v4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/android-support-v4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/gson-2.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/libammsdk.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/Msc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/weiboSDKCore_3.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/zxing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/volley.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/universal-image-loader-1.9.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/httpcore-4.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/httpmime-4.3.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/AMap_ Location_v1.4.0_20150830.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/Android_Map_2.5.1.20150827.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/greendao-1.3.0-beta-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/alipaySDK-20150818.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/libs/gson-2.3.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/libs/gson-2.3.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/volley.jar!/tests/src" />
+    </SOURCES>
+  </library>
+</component>

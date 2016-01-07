@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/mainpagenavigation"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@color/transparent"
+                android:paddingTop="3dp"
+                android:scaleX="0.7"
+                android:scaleY="0.8"
+                android:src="@drawable/location" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/cq"
+                android:id="@+id/mine_cityName"
+                android:textColor="@color/white_normal"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="13dp"
+            android:background="@drawable/searchcommodity_bg"
+            android:focusable="true"
+            android:focusableInTouchMode="true" >
+
+            <ImageView
+                android:id="@+id/mang"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dip"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="10dip"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:contentDescription="@color/transparent"
+                android:src="@drawable/manger" />
+
+            <EditText
+                android:id="@+id/auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toRightOf="@id/mang"
+                android:background="@drawable/searchcommodity_bg"
+                android:hint="@string/searchhint"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:textColor="@color/common_grey_word"
+                android:textColorHint="@color/common_grey_word"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/scanning"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="5dp"
+                android:contentDescription="@color/transparent"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:src="@drawable/scanning" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/xq"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/village"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@color/transparent"
+                android:paddingTop="3dp"
+                android:layout_gravity="center"
+                android:src="@drawable/village"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:textColor="@color/common_white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/village"
+                android:id="@+id/commutiy_text"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:layout_marginTop="1dp"
+                android:layout_gravity="center" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

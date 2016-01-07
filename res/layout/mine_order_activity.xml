@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/main"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:id="@+id/top_liner"
+                    android:background="@drawable/titlemany"
+                    android:layout_height="45dip">
+        <TextView android:layout_width="wrap_content"
+                  android:text="我的订单"
+                  android:textStyle="bold"
+                  android:layout_centerInParent="true"
+                  android:textSize="16sp"
+                  android:layout_height="wrap_content"/>
+        <ImageView android:layout_width="wrap_content"
+                   android:src="@drawable/back"
+                   android:padding="10dp"
+                   android:onClick="back"
+                   android:layout_marginLeft="10dp"
+                   android:layout_centerVertical="true"
+                   android:layout_alignParentLeft="true"
+                   android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:padding="8dp"
+                  android:visibility="gone"
+                  android:background="@color/white"
+                  android:layout_height="wrap_content">
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:text="全部"
+                  android:padding="8dp"
+                  android:id="@+id/text_one"
+                  android:gravity="center"
+                  android:textSize="16sp"
+                  android:textColor="@color/button_color_orange_p"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:text="待付款"
+                  android:gravity="center"
+                  android:padding="8dp"
+                  android:id="@+id/text_two"
+                  android:textSize="16sp"
+                  android:textColor="@color/black_text_color"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:text="已付款"
+                  android:id="@+id/text_three"
+                  android:padding="8dp"
+                  android:textSize="16sp"
+                  android:gravity="center"
+                  android:textColor="@color/black_text_color"
+                  android:layout_height="wrap_content"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="1"
+                  android:text="已完成"
+                  android:id="@+id/text_four"
+                  android:gravity="center"
+                  android:padding="8dp"
+                  android:textSize="16sp"
+                  android:textColor="@color/black_text_color"
+                  android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <ListView
+            android:id="@+id/lstv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="@color/divider_color"
+            android:dividerHeight="0.5dp"
+            android:fadingEdge="none"
+            android:fastScrollEnabled="false"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:smoothScrollbar="true"/>
+</LinearLayout>
