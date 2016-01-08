@@ -1,5 +1,6 @@
 package com.example.thirdapp.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -20,10 +21,14 @@ import com.example.thirdapp.base.BaseActivity;
 import com.example.thirdapp.base.InternetURL;
 import com.example.thirdapp.bean.CategoryBean;
 import com.example.thirdapp.bean.HRBean;
+import com.example.thirdapp.data.AdSlideData;
 import com.example.thirdapp.data.HotGoodsObjData;
+import com.example.thirdapp.data.TypeBigObjData;
 import com.example.thirdapp.http.AsyncHttpResponseHandler;
 import com.example.thirdapp.http.HttpClientUtils;
 import com.example.thirdapp.http.HttpParams;
+import com.example.thirdapp.module.TypeBigObj;
+import com.example.thirdapp.module.TypeObj;
 import com.example.thirdapp.serverid.ServerId;
 import com.example.thirdapp.util.StringUtil;
 import com.example.thirdapp.view.ContentListView;
@@ -37,8 +42,8 @@ import java.util.List;
 import java.util.Map;
 
 public class ComClass extends BaseActivity {
-	List<HRBean> lvlist;
-	List<CategoryBean> gvlsit;
+	List<TypeBigObj> lvlist;
+	List<TypeObj> gvlsit;
 	ListView listView;
 	GridView gridView;
 	HRAdapter lvadapter;
@@ -52,13 +57,9 @@ public class ComClass extends BaseActivity {
 		back = (ImageView) findViewById(R.id.back);
 		listView = (ListView) findViewById(R.id.hrlv);
 		gridView = (GridView) findViewById(R.id.hrgv);
-		lvlist = new ArrayList<HRBean>();
-		gvlsit = new ArrayList<CategoryBean>();
-		
-		for (int i = 1; i < 7; i++) {
-			HRBean bean = new HRBean("推荐商品");
-			lvlist.add(bean);
-		}
+		lvlist = new ArrayList<TypeBigObj>();
+		gvlsit = new ArrayList<TypeObj>();
+
 		
 		/*for (int i = 0; i < 12; i++) {
 			CategoryBean bean = new CategoryBean(R.drawable.demo2, "测试名称");
@@ -77,25 +78,103 @@ public class ComClass extends BaseActivity {
 		});
 		
 		listView.setOnItemClickListener(new OnItemClickListener() {
-
 			@Override
 			public void onItemClick(AdapterView<?> parent, View arg1, int position, long arg3) {
-				((HRAdapter)parent.getAdapter()).setSelection(position);
+//				((HRAdapter)parent.getAdapter()).setSelection(position);
+				TypeBigObj typeBigObj = lvlist.get(position);
+				if(typeBigObj != null){
+					gvlsit.clear();
+					if(typeBigObj.getType_data() != null){
+						gvlsit.addAll(typeBigObj.getType_data());
+					}
+					gridView.setAdapter(gvadapter);
+					gvadapter.notifyDataSetChanged();
+				}
 			}
-			
 		});
 		
 		gridView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-				
+				TypeObj typeObj = gvlsit.get(position);
+				if (typeObj != null){
+					//
+					Intent typeView = new Intent(ComClass.this, TypeGoodsActivity.class);
+					typeView.putExtra("typeId", typeObj.getType_id());
+					startActivity(typeView);
+				}
 			}
 		});
-
 		loadData();
-
 	}
+
+	void loadData(){
+		StringRequest request = new StringRequest(
+				Request.Method.POST,
+				InternetURL.PRODUCT_TYPE_URL,
+				new Response.Listener<String>() {
+					@Override
+					public void onResponse(String s) {
+						if (StringUtil.isJson(s)) {
+							try {
+								JSONObject jo = new JSONObject(s);
+								String code =  jo.getString("code");
+								if(Integer.parseInt(code) == 200){
+									TypeBigObjData data = getGson().fromJson(s, TypeBigObjData.class);
+									lvlist.clear();
+									lvlist.addAll(data.getData());
+									lvadapter.notifyDataSetChanged();
+									if(lvlist != null && lvlist.size() > 0){
+										if(lvlist.get(0).getType_data() != null){
+											gvlsit.addAll(lvlist.get(0).getType_data());
+											gridView.setAdapter(gvadapter);
+											gvadapter.notifyDataSetChanged();
+										}
+									}
+								}else {
+									Toast.makeText(ComClass.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
+								}
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
+						} else {
+							Toast.makeText(ComClass.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
+						}
+						if (progressDialog != null) {
+							progressDialog.dismiss();
+						}
+					}
+				},
+				new Response.ErrorListener() {
+					@Override
+					public void onErrorResponse(VolleyError volleyError) {
+						if (progressDialog != null) {
+							progressDialog.dismiss();
+						}
+						Toast.makeText(ComClass.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
+					}
+				}
+		) {
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String> params = new HashMap<String, String>();
+//				params.put("community_id", getGson().fromJson(getSp().getString("community_id", ""), String.class));
+				params.put("community_id", "1");
+				return params;
+			}
+
+			@Override
+			public Map<String, String> getHeaders() throws AuthFailureError {
+				Map<String, String> params = new HashMap<String, String>();
+				params.put("Content-Type", "application/x-www-form-urlencoded");
+				return params;
+			}
+		};
+		getRequestQueue().add(request);
+	}
+
+
 	
 //	public void getListView(){
 //		HttpParams params = new HttpParams();
@@ -137,74 +216,78 @@ public class ComClass extends BaseActivity {
 //	});
 
 
-	void loadData(final int currentid){
-		StringRequest request = new StringRequest(
-				Request.Method.POST,
-				InternetURL.PRODUCT_URL,
-				new Response.Listener<String>() {
-					@Override
-					public void onResponse(String s) {
-						if (StringUtil.isJson(s)) {
-							detail_lstv.onRefreshComplete();
-							detail_lstv.onLoadComplete();
-							try {
-								JSONObject jo = new JSONObject(s);
-								String code =  jo.getString("code");
-								if(Integer.parseInt(code) == 200){
-									HotGoodsObjData data = getGson().fromJson(s, HotGoodsObjData.class);
-									if (ContentListView.REFRESH == currentid) {
-										list2.clear();
-										list2.addAll(data.getData());
-										detail_lstv.setResultSize(data.getData().size());
-										adapter.notifyDataSetChanged();
-									}
-									if (ContentListView.LOAD == currentid) {
-										list2.addAll(data.getData());
-										detail_lstv.setResultSize(data.getData().size());
-										adapter.notifyDataSetChanged();
-									}
-								}else {
-									Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
-								}
-							} catch (JSONException e) {
-								e.printStackTrace();
-							}
-						} else {
-							Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
-						}
-						if (progressDialog != null) {
-							progressDialog.dismiss();
-						}
-					}
-				},
-				new Response.ErrorListener() {
-					@Override
-					public void onErrorResponse(VolleyError volleyError) {
-						if (progressDialog != null) {
-							progressDialog.dismiss();
-						}
-						detail_lstv.onRefreshComplete();
-						detail_lstv.onLoadComplete();
-						Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
-					}
-				}
-		) {
-			@Override
-			protected Map<String, String> getParams() throws AuthFailureError {
-				Map<String, String> params = new HashMap<String, String>();
-//				params.put("community_id", getGson().fromJson(getSp().getString("community_id", ""), String.class));
-				params.put("community_id", "1");
-				return params;
-			}
+//	void loadData(final int currentid){
+//		StringRequest request = new StringRequest(
+//				Request.Method.POST,
+//				InternetURL.PRODUCT_URL,
+//				new Response.Listener<String>() {
+//					@Override
+//					public void onResponse(String s) {
+//						if (StringUtil.isJson(s)) {
+//							detail_lstv.onRefreshComplete();
+//							detail_lstv.onLoadComplete();
+//							try {
+//								JSONObject jo = new JSONObject(s);
+//								String code =  jo.getString("code");
+//								if(Integer.parseInt(code) == 200){
+//									HotGoodsObjData data = getGson().fromJson(s, HotGoodsObjData.class);
+//									if (ContentListView.REFRESH == currentid) {
+//										list2.clear();
+//										list2.addAll(data.getData());
+//										detail_lstv.setResultSize(data.getData().size());
+//										adapter.notifyDataSetChanged();
+//									}
+//									if (ContentListView.LOAD == currentid) {
+//										list2.addAll(data.getData());
+//										detail_lstv.setResultSize(data.getData().size());
+//										adapter.notifyDataSetChanged();
+//									}
+//								}else {
+//									Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
+//								}
+//							} catch (JSONException e) {
+//								e.printStackTrace();
+//							}
+//						} else {
+//							Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
+//						}
+//						if (progressDialog != null) {
+//							progressDialog.dismiss();
+//						}
+//					}
+//				},
+//				new Response.ErrorListener() {
+//					@Override
+//					public void onErrorResponse(VolleyError volleyError) {
+//						if (progressDialog != null) {
+//							progressDialog.dismiss();
+//						}
+//						detail_lstv.onRefreshComplete();
+//						detail_lstv.onLoadComplete();
+//						Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
+//					}
+//				}
+//		) {
+//			@Override
+//			protected Map<String, String> getParams() throws AuthFailureError {
+//				Map<String, String> params = new HashMap<String, String>();
+////				params.put("community_id", getGson().fromJson(getSp().getString("community_id", ""), String.class));
+//				params.put("community_id", "1");
+//				return params;
+//			}
+//
+//			@Override
+//			public Map<String, String> getHeaders() throws AuthFailureError {
+//				Map<String, String> params = new HashMap<String, String>();
+//				params.put("Content-Type", "application/x-www-form-urlencoded");
+//				return params;
+//			}
+//		};
+//		getRequestQueue().add(request);
+//	}
 
-			@Override
-			public Map<String, String> getHeaders() throws AuthFailureError {
-				Map<String, String> params = new HashMap<String, String>();
-				params.put("Content-Type", "application/x-www-form-urlencoded");
-				return params;
-			}
-		};
-		getRequestQueue().add(request);
-	}
+
+
+
 
 }

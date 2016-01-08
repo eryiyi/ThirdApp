@@ -40,6 +40,7 @@
             android:padding="10dp"
             android:scaleX="0.8"
             android:scaleY="0.9"
+            android:visibility="gone"
             android:src="@drawable/menu" />
     </RelativeLayout>
 
@@ -166,6 +167,7 @@
             android:layout_toLeftOf="@id/goodanswer"
             android:contentDescription="@color/transparent"
             android:scaleX="0.9"
+            android:id="@+id/goodanswer2"
             android:scaleY="0.9"
             android:src="@drawable/bigcrown" />
     </RelativeLayout>
@@ -187,6 +189,7 @@
             android:layout_weight="1"
             android:contentDescription="@color/transparent"
             android:scaleX="0.9"
+            android:onClick="addSupport"
             android:scaleY="0.9"
             android:src="@drawable/studybottomgood" />
 
@@ -197,12 +200,14 @@
             android:contentDescription="@color/transparent"
             android:scaleX="0.9"
             android:scaleY="0.9"
+            android:onClick="addFavour"
             android:src="@drawable/studybottomstar" />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="addBest"
             android:contentDescription="@color/transparent"
             android:scaleX="0.9"
             android:scaleY="0.9"

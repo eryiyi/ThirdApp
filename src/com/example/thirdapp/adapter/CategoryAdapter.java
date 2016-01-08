@@ -8,17 +8,25 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.thirdapp.R;
+import com.example.thirdapp.ThirdApplication;
+import com.example.thirdapp.base.InternetURL;
 import com.example.thirdapp.bean.CategoryBean;
+import com.example.thirdapp.module.TypeObj;
 import com.example.thirdapp.networkbitmap.BitmapUtil;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import java.util.List;
 
 public class CategoryAdapter extends BaseAdapter{
 	LayoutInflater inflater;
 	Context context;
-	List<CategoryBean> list;
-	
-	public CategoryAdapter(Context context, List<CategoryBean> list){
+	List<TypeObj> list;
+
+	private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
+	ImageLoader imageLoader = ImageLoader.getInstance();//图片加载类
+
+	public CategoryAdapter(Context context, List<TypeObj> list){
 		inflater = LayoutInflater.from(context);
 		this.list = list;
 		this.context = context;
@@ -59,10 +67,13 @@ public class CategoryAdapter extends BaseAdapter{
 			holder = (Holder) convertView.getTag();
 		}
 		if (position < list.size()) {
-			BitmapUtil.getInstance().download("http://xiaoqu.wphl.net/", list.get(position).categoryimg, holder.categoryimg);
-			holder.categoryname.setText(list.get(position).categoryname);
+//			BitmapUtil.getInstance().download("http://xiaoqu.wphl.net/", list.get(position).getImage(), holder.categoryimg);
+			TypeObj cell= list.get(position);
+			if(cell != null){
+				imageLoader.displayImage(InternetURL.INTERNAL_PIC + cell.getImage(), holder.categoryimg, ThirdApplication.txOptions, animateFirstListener);
+				holder.categoryname.setText(cell.getType_name());
+			}
 		}
-		
 		return convertView;
 	}
 

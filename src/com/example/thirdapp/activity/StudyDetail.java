@@ -72,6 +72,7 @@ public class StudyDetail extends BaseActivity implements OnClickListener{
 				Intent intent = new Intent(StudyDetail.this, StudyLast.class);
 				AnswerObj answerObj = list.get(position);
 				intent.putExtra("answerObj", answerObj);
+				intent.putExtra("studyObj", studyObj);
 				startActivity(intent);
 			}
 
@@ -89,6 +90,7 @@ public class StudyDetail extends BaseActivity implements OnClickListener{
 		progressDialog.setIndeterminate(true);
 		progressDialog.show();
 		getData();
+		initData();
 	}
 
 	void getData(){
@@ -103,11 +105,11 @@ public class StudyDetail extends BaseActivity implements OnClickListener{
 								JSONObject jo = new JSONObject(s);
 								String code =  jo.getString("code");
 								if(Integer.parseInt(code) == 200){
-									StudyObjSingleData data = getGson().fromJson(s, StudyObjSingleData.class);
-									studyObj = data.getData();
-									initData();
+//									StudyObjSingleData data = getGson().fromJson(s, StudyObjSingleData.class);
+//									studyObj = data.getData();
+
 								}else {
-									Toast.makeText(StudyDetail.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
+									Toast.makeText(StudyDetail.this, jo.getString("msg"), Toast.LENGTH_SHORT).show();
 								}
 							} catch (JSONException e) {
 								e.printStackTrace();
@@ -153,13 +155,18 @@ public class StudyDetail extends BaseActivity implements OnClickListener{
 			StudyDetail.this.finish();
 			break;
 			case R.id.sendbtn:
-				if(StringUtil.isNullOrEmpty(replyContent.getText().toString())){
-					showMsg(StudyDetail.this,"请输入回答内容");
-					return;
+				if ("1".equals(getGson().fromJson(getSp().getString("isLogin", ""), String.class))) {
+					if(StringUtil.isNullOrEmpty(replyContent.getText().toString())){
+						showMsg(StudyDetail.this,"请输入回答内容");
+						return;
+					}
+					addReply();
+				}else {
+					Intent intent = new Intent(StudyDetail.this, Logon.class);
+					intent.putExtra("skip", 1);
+					startActivity(intent);
 				}
-				addReply();
 				break;
-
 		default:
 			break;
 		}

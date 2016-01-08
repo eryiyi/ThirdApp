@@ -9,15 +9,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.thirdapp.R;
 import com.example.thirdapp.bean.CommentBean;
+import com.example.thirdapp.module.CommentObj;
+import com.example.thirdapp.util.RelativeDateFormat;
 
 import java.util.List;
 
 public class CommentAdapter extends BaseAdapter{
 	LayoutInflater inflater;
 	Context context;
-	List<CommentBean> list;
+	List<CommentObj> list;
 	
-	public CommentAdapter(Context context, List<CommentBean> list){
+	public CommentAdapter(Context context, List<CommentObj> list){
 		inflater = LayoutInflater.from(context);
 		this.list = list;
 		this.context = context;
@@ -55,21 +57,25 @@ public class CommentAdapter extends BaseAdapter{
 			holder.username = (TextView) convertView.findViewById(R.id.username);
 			holder.commentcontent = (TextView) convertView.findViewById(R.id.commentcontent);
 			holder.commentdate = (TextView) convertView.findViewById(R.id.commentdate);
+			holder.floor_t = (TextView) convertView.findViewById(R.id.floor_t);
 			convertView.setTag(holder);
 		}else {
 			holder = (Holder) convertView.getTag();
 		}
-		if (position < list.size()) {
-			holder.floor.setImageResource(list.get(position).floor);
-			holder.username.setText(list.get(position).username);
-			holder.commentcontent.setText(list.get(position).commentcontent);
-			holder.commentdate.setText(list.get(position).commentdate);
+		CommentObj cell = list.get(position);
+		if (cell != null) {
+//			holder.floor.setImageResource(list.get(position).floor);
+			holder.username.setText(cell.getUser_name());
+			holder.floor_t.setText(String.valueOf(position+1)+"#");
+			holder.commentcontent.setText(cell.getContent());
+			holder.commentdate.setText(RelativeDateFormat.format(Long.parseLong((cell.getRegister_date() == null ? "" : cell.getRegister_date()) + "000")));
 		}
 		return convertView;
 	}
 
 	class Holder {
 		ImageView floor;
+		TextView floor_t;
 		TextView username;
 		TextView commentcontent;
 		TextView commentdate;

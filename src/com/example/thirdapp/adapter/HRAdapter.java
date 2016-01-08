@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.example.thirdapp.R;
 import com.example.thirdapp.bean.HRBean;
+import com.example.thirdapp.module.TypeBigObj;
 
 import java.util.List;
 
@@ -15,10 +16,10 @@ import java.util.List;
 public class HRAdapter extends BaseAdapter{
 	LayoutInflater inflater;
 	Context context;
-	List<HRBean> list;
+	List<TypeBigObj> list;
 	int selectedId = 0;
 	
-	public HRAdapter(Context context, List<HRBean> list){
+	public HRAdapter(Context context, List<TypeBigObj> list){
 		inflater = LayoutInflater.from(context);
 		this.list = list;
 		this.context = context;
@@ -63,7 +64,7 @@ public class HRAdapter extends BaseAdapter{
 			holder = (Holder) convertView.getTag();
 		}
 		if (position < list.size()) {
-			holder.hrtext.setText(list.get(position).hrtext);
+			holder.hrtext.setText(list.get(position).getType_name());
 		}
 		
 		if(position == selectedId) {		

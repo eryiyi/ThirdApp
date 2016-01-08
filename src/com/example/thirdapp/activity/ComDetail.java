@@ -29,6 +29,7 @@ import com.example.thirdapp.bean.CommentBean;
 import com.example.thirdapp.data.HotGoodsObjSingleData;
 import com.example.thirdapp.db.DBHelper;
 import com.example.thirdapp.db.ShoppingCart;
+import com.example.thirdapp.module.CommentObj;
 import com.example.thirdapp.module.HotGoodsObj;
 import com.example.thirdapp.util.DateUtil;
 import com.example.thirdapp.util.StringUtil;
@@ -55,7 +56,7 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 	private RadioButton radioButton4;
 	ViewPager viewpager;
 	MyListView commentlv;
-	List<CommentBean> list;
+	List<CommentObj> list;
 	CommentAdapter adapter;
 	ImageView back;
 	private String product_id;
@@ -84,22 +85,10 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 		product_id = getIntent().getExtras().getString("product_id");
 		setContentView(R.layout.comdetail);
 		initView();
-
 		//评论
-		list = new ArrayList<CommentBean>();
-		String str = "站得很高噢";
-		String str1;
-		String str2;
-		str1 = str.substring(0, 1);
-		str2 = str.substring(str.length() - 1);
-		str = str1 + "***" + str2;
-		CommentBean bean = new CommentBean(R.drawable.floor1s, str, "很好的一次购物，下次还会来的。", "2015-09-08 20:15:23");
-		list.add(bean);
-		CommentBean bean2 = new CommentBean(R.drawable.floor2s, "摔得很痛哦", "很好的一次购物，下次还会来的。", "2015-09-08 20:15:23");
-		list.add(bean2);
+		list = new ArrayList<CommentObj>();
 		adapter = new CommentAdapter(this, list);
 		commentlv.setAdapter(adapter);
-
 		getDataById();
 		getCartNum();
 	}
@@ -152,6 +141,9 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 								if(Integer.parseInt(code) == 200){
 									HotGoodsObjSingleData data = getGson().fromJson(s, HotGoodsObjSingleData.class);
 									hotGoodsObj = data.getData();
+									list.clear();
+									list.addAll(hotGoodsObj.getComment_data());
+									adapter.notifyDataSetChanged();
 									initData();
 								}else {
 									Toast.makeText(ComDetail.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();

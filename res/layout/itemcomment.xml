@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@drawable/zhuye_item_select"
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
@@ -16,11 +17,13 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="15dp"
+            android:textColor="@color/balck_text_subtitle"
             android:text="@string/demo"
             android:textSize="12sp" />
 
         <ImageView
             android:id="@+id/floor"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -30,12 +33,20 @@
             android:scaleX="0.8"
             android:scaleY="0.8"
             android:src="@drawable/floor1s" />
+        <TextView android:layout_width="wrap_content"
+                  android:layout_alignParentRight="true"
+                  android:text="1#"
+                  android:id="@+id/floor_t"
+                  android:layout_marginRight="8dp"
+                  android:layout_marginTop="15dp"
+                  android:layout_height="wrap_content"/>
     </RelativeLayout>
 
     <TextView
         android:id="@+id/commentcontent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/balck_text_subtitle"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/demo"

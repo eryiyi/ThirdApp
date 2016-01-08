@@ -1,31 +1,47 @@
 package com.example.thirdapp.module;
-//"product_id": "45",
-//        "product_name": "adsd",
-//        "community_id": "1",
-//        "shop_id": "31",
-//        "type_id": "28",
-//        "content": null,
-//        "product_pic": null,
-//        "product_pic3": null,
-//        "product_pic2": null,
-//        "product_pic1": null,
-//        "buy_numbers": "0",
-//        "is_discount": "1",
-//        "is_tuangou": null,
-//        "price_tuangou": "0.00",
-//        "price": "0.00",
-//        "info": null,
-//        "discount": "0",
-//        "tuangou_numbers": null,
-//        "unit": "",
-//        "dateline": "1447349479",
-//        "is_open": "1",
-//        "release_state": "1",
-//        "delivery_type": "3",
-//        "pay_type": null,
-//        "origin": "",
-//        "inventory": "",
-//        "sale_num": "0"
+
+import java.util.List;
+
+/**
+ * "": "34",
+ "product_name": "热门的手机",
+ "community_id": "1",
+ "shop_id": "31",
+ "type_id": "28",
+ "content": null,
+ "product_pic": "/Uploads/2015-11-22/5651376ad87e2.png",
+ "product_pic3": null,
+ "product_pic2": null,
+ "product_pic1": null,
+ "buy_numbers": "0",
+ "is_discount": "1",
+ "is_tuangou": null,
+ "price_tuangou": "8.00",
+ "price": "10.00",
+ "info": "<p><span style=\"color: rgb(51, 51, 51); font-family: &#39;Microsoft Jhenghei&#39;, Verdana, Arial, PMingLiU, sans-serif; font-size: 18px; line-height: 30.6px; background-color: rgb(255, 255, 255);\">為了挽救公司，黑莓(BlackBerry)在擁有自家手機作業系統的前提之下，還是推出了一款Android手機，期待收到奇效，顯見Android平台的魅力。不過，就算如此，還是有廠商反其道而行，不願在Android手機的紅海中競爭，寧願開拓Windows 10 Mobile手機這塊有潛力的藍海。</span></p>",
+ "discount": "0",
+ "tuangou_numbers": null,
+ "unit": "个",
+ "dateline": "1448294775",
+ "is_open": "1",
+ "release_state": "1",
+ "delivery_type": "3",
+ "pay_type": "1",
+ "origin": "广东",
+ "inventory": "1000",
+ "sale_num": "6",
+ "comment_data": [
+ {
+ "id": "227",
+ "product_id": "34",
+ "user_name": "13181038186",
+ "content": "事发地时",
+ "register_date": "1449283699",
+ "update_date": "0",
+ "is_del": "0"
+ }
+ ]
+ * */
 public class HotGoodsObj {
     private String product_id;
     private String product_name;
@@ -54,6 +70,7 @@ public class HotGoodsObj {
     private String origin;
     private String inventory;
     private String sale_num;
+    //------------------
     private String type_name;
     private String product_fid;
     private String category_id;
@@ -75,6 +92,15 @@ public class HotGoodsObj {
     private String province_id;
     private String city_id;
     private String area_id;
+    private List<CommentObj> comment_data;
+
+    public List<CommentObj> getComment_data() {
+        return comment_data;
+    }
+
+    public void setComment_data(List<CommentObj> comment_data) {
+        this.comment_data = comment_data;
+    }
 
     public String getProduct_id() {
         return product_id;
