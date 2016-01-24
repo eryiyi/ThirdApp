@@ -119,7 +119,7 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 		add_cart = (ImageView) this.findViewById(R.id.add_cart);
 		number = (TextView) this.findViewById(R.id.number);
 		add_cart.setOnClickListener(this);
-		this.findViewById(R.id.mine_favour).setOnClickListener(this);
+
 		this.findViewById(R.id.foot_dianpu).setOnClickListener(this);
 		this.findViewById(R.id.comment).setOnClickListener(this);
 		this.findViewById(R.id.share).setOnClickListener(this);
@@ -273,7 +273,7 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 					startActivity(intent);
 				}
 				break;
-			case R.id.mine_favour:
+			case R.id.mine_favour_img:
 				//喜欢
 				if ("1".equals(getGson().fromJson(getSp().getString("isLogin", ""), String.class))) {
 					//
@@ -282,6 +282,7 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 					progressDialog.setCancelable(false);
 					progressDialog.setIndeterminate(true);
 					progressDialog.show();
+					mine_favour_img.setClickable(false);
 					saveFavour();
 				}else {
 					Intent intent = new Intent(ComDetail.this, Logon.class);
@@ -433,6 +434,7 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 						if (progressDialog != null) {
 							progressDialog.dismiss();
 						}
+						mine_favour_img.setClickable(true);
 					}
 				},
 				new Response.ErrorListener() {
@@ -441,6 +443,7 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 						if (progressDialog != null) {
 							progressDialog.dismiss();
 						}
+						mine_favour_img.setClickable(true);
 						Toast.makeText(ComDetail.this, "操作失败，请稍后重试", Toast.LENGTH_SHORT).show();
 					}
 				}
