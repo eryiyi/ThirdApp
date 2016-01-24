@@ -45,7 +45,6 @@ public class MineAddressAddActivity extends BaseActivity implements View.OnClick
     private EditText telephone;
     private EditText address;
     private Button sure;
-    private EditText mobile;
     private EditText codeyb;
     Resources res;
 
@@ -105,7 +104,6 @@ public class MineAddressAddActivity extends BaseActivity implements View.OnClick
         back.setOnClickListener(this);
         nickname = (EditText) this.findViewById(R.id.nickname);
         codeyb = (EditText) this.findViewById(R.id.codeyb);
-        mobile = (EditText) this.findViewById(R.id.mobile);
         telephone = (EditText) this.findViewById(R.id.telephone);
         address = (EditText) this.findViewById(R.id.address);
         sure = (Button) this.findViewById(R.id.sure);
@@ -137,10 +135,10 @@ public class MineAddressAddActivity extends BaseActivity implements View.OnClick
                     Toast.makeText(MineAddressAddActivity.this, R.string.address_error_two, Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(StringUtil.isNullOrEmpty(mobile.getText().toString())){
-                    Toast.makeText(MineAddressAddActivity.this, R.string.address_error_threee, Toast.LENGTH_SHORT).show();
-                    return;
-                }
+//                if(StringUtil.isNullOrEmpty(mobile.getText().toString())){
+//                    Toast.makeText(MineAddressAddActivity.this, R.string.address_error_threee, Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
                 if(StringUtil.isNullOrEmpty(address.getText().toString())){
                     Toast.makeText(MineAddressAddActivity.this, R.string.address_error_three, Toast.LENGTH_SHORT).show();
                     return;
@@ -201,7 +199,7 @@ public class MineAddressAddActivity extends BaseActivity implements View.OnClick
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("access_token", getGson().fromJson(getSp().getString("access_token", ""), String.class));
-                params.put("sMobile", mobile.getText().toString());
+                params.put("sMobile", getGson().fromJson(getSp().getString("mobile", ""), String.class));
                 params.put("sAddress", province+city+district);
                 params.put("sStreet", address.getText().toString());
                 params.put("sZip", codeyb.getText().toString());

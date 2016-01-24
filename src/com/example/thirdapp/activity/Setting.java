@@ -19,6 +19,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.thirdapp.MainActivity;
 import com.example.thirdapp.R;
 import com.example.thirdapp.base.BaseActivity;
 import com.example.thirdapp.base.InternetURL;
@@ -38,7 +39,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class Setting extends BaseActivity implements View.OnClickListener{
+public class Setting extends BaseActivity implements View.OnClickListener,Runnable{
 	private static final String ATTR_PACKAGE_STATS="PackageStats";
 	private TextView huncun;
 	private TextView version;
@@ -114,6 +115,13 @@ public class Setting extends BaseActivity implements View.OnClickListener{
 				//缓存
 				DataCleanManager.cleanInternalCache(Setting.this);
 				getpkginfo("com.example.thirdapp");
+				// 启动一个线程
+				progressDialog = new CustomProgressDialog(Setting.this , "", R.anim.frame_paopao);
+				progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+				progressDialog.setCancelable(false);
+				progressDialog.setIndeterminate(true);
+				progressDialog.show();
+				new Thread(Setting.this).start();
 				break;
 			case R.id.select_friend:
 				//设置允许交友
@@ -169,6 +177,7 @@ public class Setting extends BaseActivity implements View.OnClickListener{
 		} catch (Exception e) {
 		}
 	}
+
 	class PkgSizeObserver extends IPackageStatsObserver.Stub {
 		public void onGetStatsCompleted(PackageStats pStats, boolean succeeded) {
 			Message msg = mHandler.obtainMessage(1);
@@ -255,6 +264,20 @@ public class Setting extends BaseActivity implements View.OnClickListener{
 		getRequestQueue().add(request);
 	}
 
+
+	@Override
+	public void run() {
+		try {
+			// 3秒后跳转到登录界面
+			Thread.sleep(3000);
+			if (progressDialog != null) {
+				progressDialog.dismiss();
+			}
+			showMsg(Setting.this, "清除缓存成功！");
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 
 
 }

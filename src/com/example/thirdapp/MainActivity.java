@@ -80,7 +80,9 @@ public class MainActivity extends BaseActivity implements OnBottomClickListener,
 		}
 		bottomFragment = (BottomFragment) getSupportFragmentManager().findFragmentById(R.id.bottombar);
 		bottomFragment.setBottomClickListener(this);
+
 		bottomFragment.setSelected(getbottom);
+
 	}
 
 	@Override

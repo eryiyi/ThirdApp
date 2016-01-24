@@ -129,7 +129,7 @@
                                     android:layout_weight="1"
                                     android:contentDescription="@color/transparent"
                                     android:scaleType="centerCrop"
-                                    android:src="@drawable/mf1" />
+                                 />
 
                                 <View
                                     android:layout_width="match_parent"
@@ -155,7 +155,6 @@
                                     android:layout_marginTop="5dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="@string/demotwo"
                                     android:textColor="@color/common_greythird"
                                     android:textSize="12sp" />
 
@@ -169,7 +168,6 @@
                                     android:layout_marginTop="5dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="@string/demotwo"
                                     android:textColor="@color/common_greythird"
                                     android:textSize="12sp" />
 
@@ -183,7 +181,6 @@
                                     android:layout_marginTop="5dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="@string/demotwo"
                                     android:textColor="@color/common_greythird"
                                     android:textSize="12sp" />
 
@@ -197,7 +194,6 @@
                                     android:layout_marginTop="5dp"
                                     android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="@string/demotwo"
                                     android:textColor="@color/common_greythird"
                                     android:textSize="12sp" />
 
@@ -230,7 +226,7 @@
                                 android:layout_weight="5"
                                 android:contentDescription="@color/transparent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/mf2" />
+                                 />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -239,7 +235,6 @@
                                 android:singleLine="true"
                                 android:background="@color/white"
                                 android:gravity="center"
-                                android:text="@string/demotwo"
                                 android:id="@+id/name2"
                                 android:textColor="@color/common_greythird"
                                 android:textSize="12sp" />
@@ -258,7 +253,7 @@
                                 android:layout_weight="5"
                                 android:contentDescription="@color/transparent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/mf3" />
+                                 />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -267,7 +262,6 @@
                                 android:layout_weight="1"
                                 android:background="@color/white"
                                 android:gravity="center"
-                                android:text="@string/demotwo"
                                 android:id="@+id/name3"
                                 android:textColor="@color/common_greythird"
                                 android:textSize="12sp" />

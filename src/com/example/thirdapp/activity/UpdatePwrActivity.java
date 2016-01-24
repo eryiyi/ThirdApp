@@ -178,6 +178,8 @@ public class UpdatePwrActivity extends BaseActivity implements View.OnClickListe
                                 JSONObject jo = new JSONObject(s);
                                 String code =  jo.getString("code");
                                 if(Integer.parseInt(code) == 200){
+                                    save("mobile", mobile.getText().toString());
+                                    save("password", password_one.getText().toString());
                                     showMsg(UpdatePwrActivity.this , jo.getString("msg"));
                                     finish();
                                 }else {
@@ -201,7 +203,7 @@ public class UpdatePwrActivity extends BaseActivity implements View.OnClickListe
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("access_token", getGson().fromJson(getSp().getString("access_token", ""), String.class));
+//                params.put("access_token", getGson().fromJson(getSp().getString("access_token", ""), String.class));
                 params.put("user_name", mobile.getText().toString());
                 params.put("mobile", mobile.getText().toString());
                 params.put("code", card.getText().toString());

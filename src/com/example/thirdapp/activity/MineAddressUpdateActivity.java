@@ -28,7 +28,6 @@ public class MineAddressUpdateActivity extends BaseActivity implements View.OnCl
     private ShoppingAddress goodsAddress;
     private EditText update_name;
     private EditText add_tel;
-    private EditText add_phone;
     private TextView add_address_one;
     private EditText add_address_two;
     private EditText add_youbian;
@@ -51,7 +50,6 @@ public class MineAddressUpdateActivity extends BaseActivity implements View.OnCl
         back = (ImageView) this.findViewById(R.id.back);
         update_name = (EditText) this.findViewById(R.id.update_name);
         add_tel = (EditText) this.findViewById(R.id.add_tel);
-        add_phone = (EditText) this.findViewById(R.id.add_phone);
         add_address_one = (TextView) this.findViewById(R.id.add_address_one);
         add_address_two = (EditText) this.findViewById(R.id.add_address_two);
         add_youbian = (EditText) this.findViewById(R.id.add_youbian);
@@ -62,7 +60,6 @@ public class MineAddressUpdateActivity extends BaseActivity implements View.OnCl
 
         update_name.setText(goodsAddress.getsAcceptName());
         add_tel.setText(goodsAddress.getsTelephone());
-        add_phone.setText(getGson().fromJson(getSp().getString("mobile", ""), String.class));
         add_youbian.setText(goodsAddress.getsZip());
         add_address_one.setText(goodsAddress.getsAddress());
         add_address_two.setText(goodsAddress.getsStreet());
@@ -101,10 +98,7 @@ public class MineAddressUpdateActivity extends BaseActivity implements View.OnCl
                     Toast.makeText(MineAddressUpdateActivity.this, R.string.add_address_error_two, Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (StringUtil.isNullOrEmpty(add_phone.getText().toString())) {
-                    Toast.makeText(MineAddressUpdateActivity.this, R.string.add_address_error_two, Toast.LENGTH_SHORT).show();
-                    return;
-                }
+
                 if (StringUtil.isNullOrEmpty(add_youbian.getText().toString())) {
                     Toast.makeText(MineAddressUpdateActivity.this, R.string.add_address_error_four, Toast.LENGTH_SHORT).show();
                     return;
