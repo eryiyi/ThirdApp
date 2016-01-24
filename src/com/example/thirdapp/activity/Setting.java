@@ -56,6 +56,7 @@ public class Setting extends BaseActivity implements View.OnClickListener,Runnab
 		this.findViewById(R.id.mineAddress).setOnClickListener(this);
 		this.findViewById(R.id.checkUpdate).setOnClickListener(this);
 		this.findViewById(R.id.huancunliner).setOnClickListener(this);
+		this.findViewById(R.id.about_us).setOnClickListener(this);
 		version = (TextView) this.findViewById(R.id.version);
 		huncun = (TextView) this.findViewById(R.id.huncun);
 		try {
@@ -136,6 +137,11 @@ public class Setting extends BaseActivity implements View.OnClickListener,Runnab
 					select_friend.setImageResource(R.drawable.checkedtrue);
 					setFriend();
 				}
+				break;
+			case R.id.about_us:
+				//关于我们
+				Intent aboutV = new Intent(Setting.this, AboutUsActivity.class);
+				startActivity(aboutV);
 				break;
 
 		}

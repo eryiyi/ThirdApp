@@ -5,7 +5,31 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+    <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="45dp" >-->
 
+        <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="45dp"-->
+                <!--android:background="@drawable/titlemany"-->
+                <!--android:gravity="center"-->
+                <!--android:text="@string/sunfan"-->
+                <!--android:textSize="16sp" />-->
+
+        <!--<ImageView-->
+                <!--android:id="@+id/more"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:contentDescription="@color/transparent"-->
+                <!--android:padding="10dp"-->
+                <!--android:scaleX="0.8"-->
+                <!--android:scaleY="0.9"-->
+                <!--android:src="@drawable/menu" />-->
+    <!--</RelativeLayout>-->
 
     <com.example.thirdapp.view.ContentListView
             android:id="@+id/detail_lstv"

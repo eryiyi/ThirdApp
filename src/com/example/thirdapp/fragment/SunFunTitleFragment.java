@@ -1,5 +1,6 @@
 package com.example.thirdapp.fragment;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import com.example.thirdapp.R;
+import com.example.thirdapp.activity.Logon;
 import com.example.thirdapp.base.BaseFragment;
 
 public class SunFunTitleFragment extends BaseFragment implements OnClickListener{
@@ -28,10 +30,11 @@ public class SunFunTitleFragment extends BaseFragment implements OnClickListener
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.more:
-			showPopupWindow();
+			//
+			Intent intent = new Intent("add_box");
+			getActivity().sendBroadcast(intent);
 			break;
 		case R.id.refreshmall:
-			
 			popupWindow.dismiss();
 			break;
 		default:
@@ -41,10 +44,8 @@ public class SunFunTitleFragment extends BaseFragment implements OnClickListener
 	
 	public void showPopupWindow() {
 		LayoutInflater inflater = LayoutInflater.from(getActivity());
-		viewpopup = inflater.inflate(R.layout.onlyonepopupwindow, null);
-		
+		viewpopup = inflater.inflate(R.layout.sunonlyonepopupwindow, null);
 		refreshmall = (ImageView) viewpopup.findViewById(R.id.refreshmall);
-		
 		refreshmall.setOnClickListener(this);
 		
 		//WindowManager wm = (WindowManager) getActivity().getSystemService(Context.WINDOW_SERVICE);

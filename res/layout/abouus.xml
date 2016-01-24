@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:id="@+id/main"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:id="@+id/top_liner"
+                    android:background="@drawable/titlemany"
+                    android:layout_height="45dip">
+
+        <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:contentDescription="@color/transparent"
+                android:padding="10dp"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:src="@drawable/back" />
+
+        <TextView android:layout_width="wrap_content"
+                  android:text="关于我们"
+                  android:textSize="16sp"
+                  android:layout_centerInParent="true"
+                  android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+   <TextView android:layout_width="match_parent"
+             android:padding="8dp"
+             android:textColor="@color/balck_text_subtitle"
+             android:textSize="16sp"
+             android:lineSpacingMultiplier="1.4"
+             android:text="徐州商城APP ，是徐州地区最优质的购物APP， 只要你想购买的商品 ，任何学习与交流的机会，任何论坛话题，任何交友的想法,任何充值的需要,都可以在此APP上得到满足!"
+             android:layout_height="wrap_content"/>
+
+</LinearLayout>

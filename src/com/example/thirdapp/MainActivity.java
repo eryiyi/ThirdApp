@@ -255,7 +255,9 @@ public class MainActivity extends BaseActivity implements OnBottomClickListener,
 		System.out.println("Logon.flag = " + Logon.flag);
 		if (Logon.flag == 1) {
 			setChioceItem(location);
+
 			setTitle(location);
+
 			bottomFragment.setSelected(location);
 		}
 		super.onResume();

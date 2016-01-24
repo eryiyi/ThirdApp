@@ -1,15 +1,19 @@
 package com.example.thirdapp.fragment;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
+import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.*;
+import android.provider.MediaStore;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -18,7 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.thirdapp.R;
 import com.example.thirdapp.ThirdApplication;
-import com.example.thirdapp.activity.GalleryUrlActivity;
+import com.example.thirdapp.activity.*;
 import com.example.thirdapp.adapter.AnimateFirstDisplayListener;
 import com.example.thirdapp.adapter.ItemShaifanerAdapter;
 import com.example.thirdapp.adapter.OnClickContentItemListener;
@@ -29,15 +33,16 @@ import com.example.thirdapp.bean.ShaifanerObj;
 import com.example.thirdapp.data.AdSlideData;
 import com.example.thirdapp.data.ShaifanerObjData;
 import com.example.thirdapp.module.AdSlide;
-import com.example.thirdapp.util.Constants;
-import com.example.thirdapp.util.StringUtil;
+import com.example.thirdapp.util.*;
 import com.example.thirdapp.view.ContentListView;
 import com.example.thirdapp.view.CustomProgressDialog;
+import com.example.thirdapp.view.SelectPhoPopWindow;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -73,9 +78,19 @@ public class SunFunFragment extends BaseFragment implements OnClickContentItemLi
 	private TextView text2;
 	private TextView text3;
 
+	private ArrayList<String> dataList = new ArrayList<String>();
+	private ArrayList<String> tDataList = new ArrayList<String>();
+	private List<String> uploadPaths = new ArrayList<String>();
+
+	private static int REQUEST_CODE = 1;
+
+	private final static int SELECT_LOCAL_PHOTO = 110;
+
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		view = inflater.inflate(R.layout.sunfanfragment, null);
+		registerBoradcastReceiver();
 
 		commentLayout = (LinearLayout) LayoutInflater.from(getActivity()).inflate(R.layout.sunfanfragment_header, null);
 		detail_lstv = (ContentListView) view.findViewById(R.id.detail_lstv);
@@ -387,8 +402,6 @@ public class SunFunFragment extends BaseFragment implements OnClickContentItemLi
 		getRequestQueue().add(request);
 	}
 
-
-
 	private void loadDataTop() {
 		StringRequest request = new StringRequest(
 				Request.Method.POST,
@@ -509,6 +522,80 @@ public class SunFunFragment extends BaseFragment implements OnClickContentItemLi
 				}
 			}
 				break;
+
 		}
 	}
+
+	private SelectPhoPopWindow deleteWindow;
+
+	// 选择相册，相机
+	public void  ShowPickDialog() {
+		deleteWindow = new SelectPhoPopWindow(getActivity(), itemsOnClick1);
+		//显示窗口
+		deleteWindow.showAtLocation(getActivity().findViewById(R.id.main), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
+
+	}
+	//为弹出窗口实现监听类
+	private View.OnClickListener itemsOnClick1 = new View.OnClickListener() {
+
+		public void onClick(View v) {
+			deleteWindow.dismiss();
+			switch (v.getId()) {
+				case R.id.picture: {
+					Intent wenzi = new Intent(getActivity(), PublishPicActivity.class);
+					wenzi.putExtra(Constants.SELECT_PHOTOORPIIC, "1");
+					startActivity(wenzi);
+				}
+				break;
+				case R.id.mapstorage: {
+					Intent wenzi = new Intent(getActivity(), PublishPicActivity.class);
+					wenzi.putExtra(Constants.SELECT_PHOTOORPIIC, "2");
+					startActivity(wenzi);
+				}
+				break;
+
+				default:
+					break;
+			}
+		}
+	};
+
+	//广播接收动作
+	private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			String action = intent.getAction();
+			if (action.equals("publishshaifaner")) {
+				pageIndex = 1;
+				loadData(ContentListView.REFRESH);
+			}
+			if (action.equals("add_box")) {
+				//
+				if ("1".equals(getGson().fromJson(getSp().getString("isLogin", ""), String.class))) {
+					ShowPickDialog();
+				}else {
+					Intent login = new Intent(getActivity(), Logon.class);
+					login.putExtra("skip", 1);
+					startActivity(login);
+				}
+			}
+		}
+	};
+
+	//注册广播
+	public void registerBoradcastReceiver() {
+		IntentFilter myIntentFilter = new IntentFilter();
+		myIntentFilter.addAction("add_box");
+		myIntentFilter.addAction("publishshaifaner");
+		//注册广播
+		getActivity().registerReceiver(mBroadcastReceiver, myIntentFilter);
+	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		getActivity().unregisterReceiver(mBroadcastReceiver);
+	}
+
+
 }
