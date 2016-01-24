@@ -78,7 +78,7 @@ public class FeedBack extends BaseActivity implements OnClickListener {
 							try {
 								JSONObject jo = new JSONObject(s);
 								String code =  jo.getString("code");
-								if(Integer.parseInt(code) == 1){
+								if(Integer.parseInt(code) == 200){
 									showMsg(FeedBack.this, jo.getString("msg"));
 									finish();
 								}else {

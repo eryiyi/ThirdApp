@@ -22,7 +22,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 public class PersonMsg extends BaseActivity implements OnClickListener{
-	TextView confirm;
+
 	RelativeLayout propertyphone;
 	private MemberObj memberObj;
 
@@ -48,9 +48,9 @@ public class PersonMsg extends BaseActivity implements OnClickListener{
 		super.onCreate(arg0);
 		memberObj = (MemberObj) getIntent().getExtras().get("memberObj");
 		setContentView(R.layout.personmsg);
-		confirm = (TextView) findViewById(R.id.confirm);
+
 		propertyphone = (RelativeLayout) findViewById(R.id.propertyphone);
-		confirm.setOnClickListener(this);
+
 		propertyphone.setOnClickListener(this);
 
 		icon = (ImageView) this.findViewById(R.id.icon);
@@ -117,13 +117,7 @@ public class PersonMsg extends BaseActivity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-			case R.id.confirm:
-				save("isLogin","0");
-				SharedPrefsUtil.putValue(PersonMsg.this, "UserUid", 0);
-				Toast.makeText(PersonMsg.this, "已退出当前用户", Toast.LENGTH_SHORT).show();
-				Intent intent2 = new Intent(PersonMsg.this, MainActivity.class);
-				startActivity(intent2);
-				break;
+
 			case R.id.propertyphone:
 //				Intent intent = new Intent(PersonMsg.this, VillageNumber.class);
 //				startActivity(intent);

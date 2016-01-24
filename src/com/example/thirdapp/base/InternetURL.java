@@ -108,5 +108,8 @@ public class InternetURL {
     //论坛评论
     public static final String TALK_ADD_COMMENT_URL = INTERNAL + "talk/comment";
 
+    //商品收藏接口
+    public static final String PRODUCT_COLLECT_URL = INTERNAL + "product/collect";
+
 
 }

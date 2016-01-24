@@ -15,10 +15,12 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.thirdapp.MainActivity;
 import com.example.thirdapp.R;
 import com.example.thirdapp.ThirdApplication;
 import com.example.thirdapp.activity.*;
 import com.example.thirdapp.adapter.AnimateFirstDisplayListener;
+import com.example.thirdapp.base.ActivityTack;
 import com.example.thirdapp.base.BaseFragment;
 import com.example.thirdapp.base.InternetURL;
 import com.example.thirdapp.data.AdSlideData;
@@ -26,6 +28,7 @@ import com.example.thirdapp.data.MemberObjData;
 import com.example.thirdapp.db.DBHelper;
 import com.example.thirdapp.db.ShoppingCart;
 import com.example.thirdapp.module.MemberObj;
+import com.example.thirdapp.sharedprefercens.SharedPrefsUtil;
 import com.example.thirdapp.util.StringUtil;
 import com.image.view.RoundImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -56,14 +59,13 @@ public class MyFragment extends BaseFragment implements OnClickListener{
 	RoundImageView mysetting;
 	LinearLayout collectionfoot;
 	RelativeLayout feedbackpage;
-
+	TextView confirm;
 	private TextView mine_cart;//我的购物车数量
 
 	private MemberObj memberObj;
 	private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
 	ImageLoader imageLoader = ImageLoader.getInstance();//图片加载类
 
-//
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		view = inflater.inflate(R.layout.myfragment, null);
@@ -101,9 +103,12 @@ public class MyFragment extends BaseFragment implements OnClickListener{
 	}
 
 	void initView(){
+		confirm = (TextView) view.findViewById(R.id.confirm);
+		confirm.setOnClickListener(this);
 		tobepaid = (ImageView) view.findViewById(R.id.tobepaid);
 		imgtxt = (LinearLayout) view.findViewById(R.id.imgtxt);
 		username = (TextView) view.findViewById(R.id.username);
+		username.setOnClickListener(this);
 		setting = (RelativeLayout) view.findViewById(R.id.setting);
 		mysetting = (RoundImageView) view.findViewById(R.id.mysetting);
 		collectionfoot = (LinearLayout) view.findViewById(R.id.collectionfoot);
@@ -148,6 +153,12 @@ public class MyFragment extends BaseFragment implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+			case R.id.confirm:
+				save("isLogin","0");
+				SharedPrefsUtil.putValue(getActivity(), "UserUid", 0);
+				Toast.makeText(getActivity(), "已退出当前用户", Toast.LENGTH_SHORT).show();
+				ActivityTack.getInstanse().popActivity(getActivity());
+				break;
 			case R.id.tobepaid:
 				Intent intent = new Intent(getActivity(), ToBePaid.class);
 				startActivity(intent);
@@ -170,7 +181,6 @@ public class MyFragment extends BaseFragment implements OnClickListener{
 			case R.id.allorder:
 				Intent intent6 = new Intent(getActivity(), MineOrdersMngActivity.class);
 				startActivity(intent6);
-
 				break;
 			case R.id.wallet:
 				Intent intent7 = new Intent(getActivity(), Wallet.class);
@@ -193,6 +203,8 @@ public class MyFragment extends BaseFragment implements OnClickListener{
 				startActivity(intent11);
 				break;
 			case R.id.mysetting:
+			case R.id.username:
+				//个人中心设置
 				Intent intent12 = new Intent(getActivity(), PersonMsg.class);
 				intent12.putExtra("memberObj", memberObj);
 				startActivity(intent12);

@@ -25,10 +25,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.example.thirdapp.R;
-import com.example.thirdapp.activity.ComClass;
-import com.example.thirdapp.activity.CommodityList;
-import com.example.thirdapp.activity.Logon;
-import com.example.thirdapp.activity.MineCartActivity;
+import com.example.thirdapp.activity.*;
 import com.example.thirdapp.adapter.ItemGoodsAdapter;
 import com.example.thirdapp.adapter.OnClickContentItemListener;
 import com.example.thirdapp.adapter.ViewPagerAdapter;
@@ -114,20 +111,10 @@ public class MallFragment extends BaseFragment implements ContentListView.OnRefr
 		mallclass.setOnClickListener(this);
 
 		detail_lstv.addHeaderView(commentLayout);//添加头部
-//        detail_lstv.addFooterView(commentLayoutfoot);
 		detail_lstv.setOnRefreshListener(this);
 		detail_lstv.setOnLoadListener(this);
-//        detail_lstv.setLoadEnable(true);
-		detail_lstv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				//
-			}
-		});
-
 		list2 = new ArrayList<HotGoodsObj>();
 		adapter = new ItemGoodsAdapter(listsHot ,getActivity());
-
 
 		adapter2 = new MyAdapter(getActivity(), list2);
 		adapter2.setOnClickContentItemListener(this);
@@ -140,7 +127,12 @@ public class MallFragment extends BaseFragment implements ContentListView.OnRefr
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-				Intent intent = new Intent(getActivity(), CommodityList.class);
+//				Intent intent = new Intent(getActivity(), CommodityList.class);
+//				startActivity(intent);
+
+				Intent intent = new Intent(getActivity(), ComDetail.class);
+				HotGoodsObj hotGoodsObj = list2.get(position-2);
+				intent.putExtra("product_id", hotGoodsObj.getProduct_id());
 				startActivity(intent);
 			}
 		});

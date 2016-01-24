@@ -1,5 +1,6 @@
 package com.example.thirdapp.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import com.example.thirdapp.adapter.CommentAdapter;
 import com.example.thirdapp.base.BaseActivity;
 import com.example.thirdapp.base.InternetURL;
 import com.example.thirdapp.bean.CommentBean;
+import com.example.thirdapp.data.HotGoodsObjData;
 import com.example.thirdapp.data.HotGoodsObjSingleData;
 import com.example.thirdapp.db.DBHelper;
 import com.example.thirdapp.db.ShoppingCart;
@@ -33,6 +35,7 @@ import com.example.thirdapp.module.CommentObj;
 import com.example.thirdapp.module.HotGoodsObj;
 import com.example.thirdapp.util.DateUtil;
 import com.example.thirdapp.util.StringUtil;
+import com.example.thirdapp.view.CustomProgressDialog;
 import com.example.thirdapp.view.MyListView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
@@ -273,7 +276,13 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 			case R.id.mine_favour:
 				//喜欢
 				if ("1".equals(getGson().fromJson(getSp().getString("isLogin", ""), String.class))) {
-
+					//
+					progressDialog = new CustomProgressDialog(ComDetail.this, "", R.anim.frame_paopao);
+					progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+					progressDialog.setCancelable(false);
+					progressDialog.setIndeterminate(true);
+					progressDialog.show();
+					saveFavour();
 				}else {
 					Intent intent = new Intent(ComDetail.this, Logon.class);
 					intent.putExtra("skip", 1);
@@ -397,4 +406,61 @@ public class ComDetail extends BaseActivity implements OnClickListener{
             return imageviews.get(arg1);                
         }
     };
+
+
+	void saveFavour(){
+		StringRequest request = new StringRequest(
+				Request.Method.POST,
+				InternetURL.PRODUCT_COLLECT_URL,
+				new Response.Listener<String>() {
+					@Override
+					public void onResponse(String s) {
+						if (StringUtil.isJson(s)) {
+							try {
+								JSONObject jo = new JSONObject(s);
+								String code =  jo.getString("code");
+								if(Integer.parseInt(code) == 200){
+									Toast.makeText(ComDetail.this, jo.getString("msg"), Toast.LENGTH_SHORT).show();
+								}else {
+									Toast.makeText(ComDetail.this, jo.getString("msg"), Toast.LENGTH_SHORT).show();
+								}
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
+						} else {
+							Toast.makeText(ComDetail.this, "操作失败，请稍后重试", Toast.LENGTH_SHORT).show();
+						}
+						if (progressDialog != null) {
+							progressDialog.dismiss();
+						}
+					}
+				},
+				new Response.ErrorListener() {
+					@Override
+					public void onErrorResponse(VolleyError volleyError) {
+						if (progressDialog != null) {
+							progressDialog.dismiss();
+						}
+						Toast.makeText(ComDetail.this, "操作失败，请稍后重试", Toast.LENGTH_SHORT).show();
+					}
+				}
+		) {
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String> params = new HashMap<String, String>();
+				params.put("user_name", getGson().fromJson(getSp().getString("mobile", ""), String.class));
+				params.put("product_id", product_id);
+				return params;
+			}
+
+			@Override
+			public Map<String, String> getHeaders() throws AuthFailureError {
+				Map<String, String> params = new HashMap<String, String>();
+				params.put("Content-Type", "application/x-www-form-urlencoded");
+				return params;
+			}
+		};
+		getRequestQueue().add(request);
+	}
+
 }
