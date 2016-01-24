@@ -110,6 +110,14 @@ public class InternetURL {
 
     //商品收藏接口
     public static final String PRODUCT_COLLECT_URL = INTERNAL + "product/collect";
+    //编辑个人信息
+    public static final String UPDATE_MEMBER_URL = INTERNAL + "user/updateMemberInfo";
 
+    //1 、 添加 晒 范( ( add) )
+    public static final String SHOW_ADD_URL = INTERNAL + "show/add";
+    // 晒 范 列表( ( lists) )
+    public static final String SHOW_LISTS_URL = INTERNAL + "show/lists";
+    // 、 晒 范 前三( ( get
+    public static final String SHOW_LISTS_TOP_URL = INTERNAL + "show/getTopList";
 
 }

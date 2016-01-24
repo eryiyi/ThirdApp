@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
+              android:id="@+id/main"
               android:background="@color/white"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
@@ -30,5 +31,208 @@
                 android:textSize="16sp" />
     </RelativeLayout>
 
+    <com.example.thirdapp.view.ReboundScrollView android:layout_width="match_parent"
+                                                 android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="vertical"
+                      android:layout_height="match_parent">
 
+            <EditText
+                    android:id="@+id/nickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:padding="15dp"
+                    android:background="@drawable/et_bule_bg"
+                    android:hint="昵称"/>
+            <RelativeLayout android:layout_width="match_parent"
+                            android:padding="8dp"
+                            android:id="@+id/liner_sex"
+                            android:layout_marginTop="15dp"
+                            android:background="@color/white"
+                            android:layout_height="wrap_content">
+
+                <TextView android:layout_width="wrap_content"
+                          android:textColor="@color/balck_text_subtitle"
+                          android:text="性别"
+                          android:layout_centerVertical="true"
+                          android:layout_marginLeft="8dp"
+                          android:layout_gravity="center_vertical"
+                          android:gravity="center_vertical"
+                          android:layout_height="wrap_content"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_marginLeft="100dp"
+                          android:text="女"
+                          android:textColor="@color/red"
+                          android:id="@+id/mine_sex"
+                          android:layout_centerVertical="true"
+                          android:layout_gravity="center_vertical"
+                          android:gravity="center_vertical"
+                          android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="match_parent"
+                            android:padding="8dp"
+                            android:id="@+id/liner_birth"
+                            android:layout_marginTop="3dp"
+                            android:background="@color/white"
+                            android:layout_height="wrap_content">
+
+                <TextView android:layout_width="wrap_content"
+                          android:textColor="@color/balck_text_subtitle"
+                          android:text="出生年月"
+                          android:layout_centerVertical="true"
+                          android:layout_marginLeft="8dp"
+                          android:layout_gravity="center_vertical"
+                          android:gravity="center_vertical"
+                          android:layout_height="wrap_content"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_marginLeft="100dp"
+                          android:text="20160101"
+                          android:textColor="@color/red"
+                          android:id="@+id/mine_birth"
+                          android:layout_centerVertical="true"
+                          android:layout_gravity="center_vertical"
+                          android:gravity="center_vertical"
+                          android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+
+            <EditText
+                    android:id="@+id/age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:numeric="integer"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:padding="15dp"
+                    android:background="@drawable/et_bule_bg"
+                    android:hint="年龄"/>
+
+            <EditText
+                    android:id="@+id/home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:padding="15dp"
+                    android:background="@drawable/et_bule_bg"
+                    android:hint="故乡"/>
+            <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:padding="15dp"
+                    android:background="@drawable/et_bule_bg"
+                    android:hint="邮箱"/>
+            <EditText
+                android:id="@+id/geyan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="50dp"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:paddingTop="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="10dp"
+                android:padding="15dp"
+                android:background="@drawable/et_bule_bg"
+                android:hint="格言"/>
+            <EditText
+                    android:id="@+id/weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:padding="15dp"
+                    android:background="@drawable/et_bule_bg"
+                    android:hint="体重"/>
+            <EditText
+                    android:id="@+id/height"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:singleLine="true"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:padding="15dp"
+                    android:background="@drawable/et_bule_bg"
+                    android:hint="身高"/>
+
+            <TextView
+                    android:id="@+id/confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="35dp"
+                    android:background="@drawable/layout_selectorred"
+                    android:gravity="center"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/confirm"
+                    android:textColor="@color/common_white" />
+        </LinearLayout>
+    </com.example.thirdapp.view.ReboundScrollView>
 </LinearLayout>

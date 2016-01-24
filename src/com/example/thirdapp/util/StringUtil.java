@@ -10,6 +10,7 @@ import com.google.gson.JsonParser;
 
 import java.security.MessageDigest;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -239,6 +240,36 @@ public class StringUtil {
         }
     }
 
-
+    public static String strToHaomiao(String expireDate) throws ParseException {
+        if(expireDate==null||expireDate.trim().equals(""))
+            return "";
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        Date date=null;
+        try{
+            date=sdf.parse(expireDate);
+            return String.valueOf((date.getTime()/1000));
+        }
+        catch(ParseException e)
+        {
+            e.printStackTrace();
+            return "";
+        }
+    }
+    public static String getDateTimeByMillisecond(String seconds) {
+        if(seconds==null)
+            return " ";
+        else{
+            Date date=new Date();
+            try{
+                date.setTime(Long.parseLong(seconds)*1000);
+            }
+            catch(NumberFormatException nfe){
+                nfe.printStackTrace();
+                return "Input string:"+seconds+"not correct,eg:2011-01-20";
+            }
+            SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+            return sdf.format(date);
+        }
+    }
 
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:background="@drawable/zhuye_item_select"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:orientation="horizontal"
+    android:background="@drawable/sunfunshape"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp" >
+
+    <com.example.thirdapp.view.CircleImageView
+    android:layout_width="40dp"
+    android:id="@+id/head"
+    android:layout_height="40dp"
+    android:layout_margin="5dp"
+    android:src="@drawable/mg1" />
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:id="@+id/title"
+    android:textColor="@color/balck_text_subtitle"
+    android:text="@string/demo" />
+
+    </LinearLayout>
+
+    <ImageView
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:id="@+id/pic"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:contentDescription="@color/transparent"
+    android:scaleType="centerCrop"
+    android:src="@drawable/demo4" />
+</LinearLayout>

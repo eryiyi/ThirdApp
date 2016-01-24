@@ -298,6 +298,8 @@ public class Convenience1 extends BaseFragment implements OnClickListener,OnRefr
 						if (progressDialog != null) {
 							progressDialog.dismiss();
 						}
+						listViewUpDown.onRefreshComplete();
+						listViewUpDown.onLoadComplete();
 						Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
 					}
 				}

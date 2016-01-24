@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aliceblue"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:id="@+id/banner"
+                android:layout_weight="1"
+                android:layout_height="200dp" >
+            <android.support.v4.view.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+            </android.support.v4.view.ViewPager>
+
+            <LinearLayout
+                    android:id="@+id/viewGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="1dp" >
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_marginTop="8dp"
+                      android:layout_marginBottom="8dp"
+                      android:layout_height="wrap_content">
+
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_weight="1"
+                          android:id="@+id/liner_one"
+                          android:background="@color/white"
+                          android:layout_marginLeft="8dp"
+                          android:layout_marginRight="8dp"
+                          android:orientation="vertical"
+                          android:layout_height="180dp">
+                <RelativeLayout android:layout_width="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content">
+                    <com.example.thirdapp.view.CircleImageView
+                            android:layout_width="60dp"
+                            android:id="@+id/head_one"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/head"
+                            android:layout_height="60dp"/>
+                    <TextView android:layout_width="match_parent"
+                              android:padding="8dp"
+                              android:id="@+id/name_one"
+                              android:gravity="center_horizontal"
+                              android:layout_below="@+id/head_one"
+                              android:textColor="@color/balck_text_subtitle"
+                              android:layout_height="wrap_content"/>
+                </RelativeLayout>
+                <TextView android:layout_width="wrap_content"
+                          android:textColor="@color/balck_text_subtitle"
+                          android:textSize="13sp"
+                          android:id="@+id/text1"
+                          android:layout_gravity="center"
+                          android:gravity="center"
+                          android:layout_height="40dp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_weight="1"
+                          android:background="@color/white"
+                          android:layout_marginLeft="8dp"
+                          android:layout_marginRight="8dp"
+                          android:id="@+id/liner_two"
+                          android:orientation="vertical"
+                          android:layout_height="180dp">
+                <RelativeLayout android:layout_width="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content">
+                    <com.example.thirdapp.view.CircleImageView
+                            android:layout_width="60dp"
+                            android:src="@drawable/head"
+                            android:id="@+id/head_two"
+                            android:layout_centerHorizontal="true"
+                            android:layout_height="60dp"/>
+                    <TextView android:layout_width="match_parent"
+                              android:padding="8dp"
+                              android:id="@+id/name_two"
+                              android:gravity="center_horizontal"
+                              android:layout_below="@+id/head_two"
+                              android:textColor="@color/balck_text_subtitle"
+                              android:layout_height="wrap_content"/>
+                </RelativeLayout>
+                <TextView android:layout_width="wrap_content"
+                          android:textColor="@color/balck_text_subtitle"
+                          android:textSize="13sp"
+                          android:id="@+id/text2"
+                          android:layout_gravity="center"
+                          android:gravity="center"
+                          android:layout_height="40dp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_weight="1"
+                          android:background="@color/white"
+                          android:layout_marginLeft="8dp"
+                          android:layout_marginRight="8dp"
+                          android:orientation="vertical"
+                          android:id="@+id/liner_three"
+                          android:layout_height="180dp">
+                <RelativeLayout android:layout_width="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content">
+                    <com.example.thirdapp.view.CircleImageView
+                            android:layout_width="60dp"
+                            android:id="@+id/head_three"
+                            android:src="@drawable/head"
+                            android:layout_centerHorizontal="true"
+                            android:layout_height="60dp"/>
+                    <TextView android:layout_width="match_parent"
+                              android:padding="8dp"
+                              android:id="@+id/name_three"
+                              android:gravity="center_horizontal"
+                              android:layout_below="@+id/head_three"
+                              android:textColor="@color/balck_text_subtitle"
+                              android:layout_height="wrap_content"/>
+                </RelativeLayout>
+                <TextView android:layout_width="wrap_content"
+                          android:id="@+id/text3"
+                          android:textColor="@color/balck_text_subtitle"
+                          android:textSize="13sp"
+                          android:layout_gravity="center"
+                          android:gravity="center"
+                          android:layout_height="40dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

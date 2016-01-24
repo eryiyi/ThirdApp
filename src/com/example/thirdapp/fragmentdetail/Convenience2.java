@@ -69,8 +69,12 @@ public class Convenience2 extends BaseFragment implements OnClickListener,OnRefr
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+
 				Intent intent = new Intent(getActivity(), PropertyDetail.class);
+				HouseInfoObj houseInfoObj = list.get(position - 1);
+				intent.putExtra("houseInfoObj", houseInfoObj);
 				startActivity(intent);
+
 			}
 		});
 		image1 = (ImageView) view.findViewById(R.id.image1);
@@ -288,7 +292,9 @@ public class Convenience2 extends BaseFragment implements OnClickListener,OnRefr
 						}
 						if (progressDialog != null) {
 							progressDialog.dismiss();
-						}
+						}listViewUpDown.onRefreshComplete();
+						listViewUpDown.onLoadComplete();
+
 					}
 				},
 				new Response.ErrorListener() {
@@ -297,6 +303,8 @@ public class Convenience2 extends BaseFragment implements OnClickListener,OnRefr
 						if (progressDialog != null) {
 							progressDialog.dismiss();
 						}
+						listViewUpDown.onRefreshComplete();
+						listViewUpDown.onLoadComplete();
 						Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
 					}
 				}

@@ -114,6 +114,7 @@
         <activity android:name="com.example.thirdapp.activity.AddLtCommentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
         <activity android:name="com.example.thirdapp.activity.EditMemberActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
         <activity android:name="com.example.thirdapp.activity.TypeGoodsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.example.thirdapp.activity.GalleryUrlActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
 
 

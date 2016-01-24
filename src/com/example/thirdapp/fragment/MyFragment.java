@@ -85,6 +85,13 @@ public class MyFragment extends BaseFragment implements OnClickListener{
 			if (action.equals("cart_success")) {
 				getCartNum();
 			}
+			if (action.equals("updateSuccess")) {
+				//
+				getMember();
+			}
+			if (action.equals("updateSuccessCover")) {
+				getMember();
+			}
 		}
 	};
 
@@ -92,6 +99,8 @@ public class MyFragment extends BaseFragment implements OnClickListener{
 	public void registerBoradcastReceiver() {
 		IntentFilter myIntentFilter = new IntentFilter();
 		myIntentFilter.addAction("cart_success");
+		myIntentFilter.addAction("updateSuccess");
+		myIntentFilter.addAction("updateSuccessCover");
 		//注册广播
 		getActivity().registerReceiver(mBroadcastReceiver, myIntentFilter);
 	}
@@ -251,6 +260,16 @@ public class MyFragment extends BaseFragment implements OnClickListener{
 								if(Integer.parseInt(code) == 200){
 									MemberObjData data = getGson().fromJson(s, MemberObjData.class);
 									memberObj = data.getData();
+									save("nick_name", memberObj.getNick_name());
+									save("cover", memberObj.getCover());
+									save("community_id", memberObj.getCommunity_id());
+									save("sex", memberObj.getSex());
+									save("weight", memberObj.getWeight());
+									save("geyan", memberObj.getGeyan());
+									save("email", memberObj.getEmail());
+									save("height", memberObj.getHeight());
+									save("birthday", memberObj.getBirthday());
+									save("birthday_pplace", memberObj.getBirthday_place());
 									initData();
 								}else {
 									Toast.makeText(getActivity(), R.string.get_data_error, Toast.LENGTH_SHORT).show();
