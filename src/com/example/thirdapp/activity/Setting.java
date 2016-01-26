@@ -74,6 +74,11 @@ public class Setting extends BaseActivity implements View.OnClickListener,Runnab
 			select_friend.setImageResource(R.drawable.checkedtfalse);
 		}
 
+		try {
+			huncun.setText(DataCleanManager.getTotalCacheSize(Setting.this));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -114,8 +119,7 @@ public class Setting extends BaseActivity implements View.OnClickListener,Runnab
 
 			case R.id.huancunliner:
 				//缓存
-				DataCleanManager.cleanInternalCache(Setting.this);
-				getpkginfo("com.example.thirdapp");
+//				DataCleanManager.cleanInternalCache(Setting.this);
 				// 启动一个线程
 				progressDialog = new CustomProgressDialog(Setting.this , "", R.anim.frame_paopao);
 				progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -123,6 +127,13 @@ public class Setting extends BaseActivity implements View.OnClickListener,Runnab
 				progressDialog.setIndeterminate(true);
 				progressDialog.show();
 				new Thread(Setting.this).start();
+				DataCleanManager.clearAllCache(Setting.this);
+				Toast.makeText(getApplication(), "清除缓存成功",Toast.LENGTH_LONG);
+				try {
+					huncun.setText(DataCleanManager.getTotalCacheSize(Setting.this));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				break;
 			case R.id.select_friend:
 				//设置允许交友
@@ -157,73 +168,73 @@ public class Setting extends BaseActivity implements View.OnClickListener,Runnab
 		return version;
 	}
 
-	private Handler mHandler = new Handler() {
-		public void handleMessage(Message msg) {
-			switch (msg.what) {
-				case 1:
-					String infoString="";
-					PackageStats newPs = msg.getData().getParcelable(ATTR_PACKAGE_STATS);
-					if (newPs!=null) {
+//	private Handler mHandler = new Handler() {
+//		public void handleMessage(Message msg) {
+//			switch (msg.what) {
+//				case 1:
+//					String infoString="";
+//					PackageStats newPs = msg.getData().getParcelable(ATTR_PACKAGE_STATS);
+//					if (newPs!=null) {
 //                        infoString+="应用程序大小: "+formatFileSize(newPs.codeSize);
 //                        infoString+="\n数据大小: "+formatFileSize(newPs.dataSize);
-						infoString+= formatFileSize(newPs.cacheSize);
-					}
-					huncun.setText(infoString);
-					break;
-				default:
-					break;
-			}
-		}
-	};
-	public void getpkginfo(String pkg){
-		PackageManager pm = getPackageManager();
-		try {
-			Method getPackageSizeInfo = pm.getClass().getMethod("getPackageSizeInfo", String.class, IPackageStatsObserver.class);
-			getPackageSizeInfo.invoke(pm, pkg,new PkgSizeObserver());
-		} catch (Exception e) {
-		}
-	}
+//						infoString+= formatFileSize(newPs.cacheSize);
+//					}
+//					huncun.setText(infoString);
+//					break;
+//				default:
+//					break;
+//			}
+//		}
+//	};
+//	public void getpkginfo(String pkg){
+//		PackageManager pm = getPackageManager();
+//		try {
+//			Method getPackageSizeInfo = pm.getClass().getMethod("getPackageSizeInfo", String.class, IPackageStatsObserver.class);
+//			getPackageSizeInfo.invoke(pm, pkg,new PkgSizeObserver());
+//		} catch (Exception e) {
+//		}
+//	}
 
-	class PkgSizeObserver extends IPackageStatsObserver.Stub {
-		public void onGetStatsCompleted(PackageStats pStats, boolean succeeded) {
-			Message msg = mHandler.obtainMessage(1);
-			Bundle data = new Bundle();
-			data.putParcelable(ATTR_PACKAGE_STATS, pStats);
-			msg.setData(data);
-			mHandler.sendMessage(msg);
+//	class PkgSizeObserver extends IPackageStatsObserver.Stub {
+//		public void onGetStatsCompleted(PackageStats pStats, boolean succeeded) {
+//			Message msg = mHandler.obtainMessage(1);
+//			Bundle data = new Bundle();
+//			data.putParcelable(ATTR_PACKAGE_STATS, pStats);
+//			msg.setData(data);
+//			mHandler.sendMessage(msg);
+//
+//		}
+//	}
 
-		}
-	}
-
-	/**
-	 * 获取文件大小
-	 *
-	 * @param length
-	 * @return
-	 */
-	public static String formatFileSize(long length) {
-		String result = null;
-		int sub_string = 0;
-		if (length >= 1073741824) {
-			sub_string = String.valueOf((float) length / 1073741824).indexOf(
-					".");
-			result = ((float) length / 1073741824 + "000").substring(0,
-					sub_string + 3)
-					+ "GB";
-		} else if (length >= 1048576) {
-			sub_string = String.valueOf((float) length / 1048576).indexOf(".");
-			result = ((float) length / 1048576 + "000").substring(0,
-					sub_string + 3)
-					+ "MB";
-		} else if (length >= 1024) {
-			sub_string = String.valueOf((float) length / 1024).indexOf(".");
-			result = ((float) length / 1024 + "000").substring(0,
-					sub_string + 3)
-					+ "KB";
-		} else if (length < 1024)
-			result = Long.toString(length) + "B";
-		return result;
-	}
+//	/**
+//	 * 获取文件大小
+//	 *
+//	 * @param length
+//	 * @return
+//	 */
+//	public static String formatFileSize(long length) {
+//		String result = null;
+//		int sub_string = 0;
+//		if (length >= 1073741824) {
+//			sub_string = String.valueOf((float) length / 1073741824).indexOf(
+//					".");
+//			result = ((float) length / 1073741824 + "000").substring(0,
+//					sub_string + 3)
+//					+ "GB";
+//		} else if (length >= 1048576) {
+//			sub_string = String.valueOf((float) length / 1048576).indexOf(".");
+//			result = ((float) length / 1048576 + "000").substring(0,
+//					sub_string + 3)
+//					+ "MB";
+//		} else if (length >= 1024) {
+//			sub_string = String.valueOf((float) length / 1024).indexOf(".");
+//			result = ((float) length / 1024 + "000").substring(0,
+//					sub_string + 3)
+//					+ "KB";
+//		} else if (length < 1024)
+//			result = Long.toString(length) + "B";
+//		return result;
+//	}
 
 
 
@@ -278,8 +289,8 @@ public class Setting extends BaseActivity implements View.OnClickListener,Runnab
 			Thread.sleep(3000);
 			if (progressDialog != null) {
 				progressDialog.dismiss();
+
 			}
-			showMsg(Setting.this, "清除缓存成功！");
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

@@ -63,8 +63,6 @@ public class PersonMsg extends BaseActivity implements OnClickListener{
 	private TextView geyan;
 	private TextView home;
 	private TextView email;
-	private TextView qq;
-
 
 	private SelectPhoWindow deleteWindow;
 
@@ -73,6 +71,7 @@ public class PersonMsg extends BaseActivity implements OnClickListener{
 	Bitmap photo;
 	private String picStr = "";
 
+	private TextView telwuye;//wuye dianhua
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -102,7 +101,8 @@ public class PersonMsg extends BaseActivity implements OnClickListener{
 		geyan = (TextView) this.findViewById(R.id.geyan);
 		home = (TextView) this.findViewById(R.id.home);
 		email = (TextView) this.findViewById(R.id.email);
-		qq = (TextView) this.findViewById(R.id.qq);
+
+		telwuye = (TextView) this.findViewById(R.id.telwuye);
 
 
 		initData();
@@ -114,13 +114,13 @@ public class PersonMsg extends BaseActivity implements OnClickListener{
 		geyan.setOnClickListener(this);
 		home.setOnClickListener(this);
 		email.setOnClickListener(this);
-		qq.setOnClickListener(this);
+
 
 	}
 
 	void initData(){
 		zhanghao.setText(memberObj.getMobile()==null?"":memberObj.getMobile());
-		xiaoqu.setText(getGson().fromJson(getSp().getString("community_id", ""), String.class));
+		xiaoqu.setText(getGson().fromJson(getSp().getString("community_name", ""), String.class));
 		nicheng.setText(memberObj.getNick_name()==null?"":memberObj.getNick_name());
 
 		String sexstr = "";
@@ -135,6 +135,7 @@ public class PersonMsg extends BaseActivity implements OnClickListener{
 		}
 
 		sex.setText(sexstr);
+
 
 		weight.setText(memberObj.getWeight()==null?"暂未填写":memberObj.getWeight());
 
@@ -151,6 +152,7 @@ public class PersonMsg extends BaseActivity implements OnClickListener{
 			home.setText(str_home);
 		}
 		email.setText(memberObj.getEmail()==null?"":memberObj.getEmail());
+		telwuye.setText("");
 	}
 	@Override
 	public void onClick(View v) {
@@ -226,12 +228,9 @@ public class PersonMsg extends BaseActivity implements OnClickListener{
 				startActivity(edit);
 			}
 			break;
-			case R.id.qq:
+			case R.id.telwuye:
 			{
-				//
-				Intent edit = new Intent(PersonMsg.this, EditMemberActivity.class);
-				edit.putExtra("memberObj", memberObj);
-				startActivity(edit);
+				//物业电话
 			}
 			break;
 			case R.id.icon:

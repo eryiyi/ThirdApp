@@ -263,6 +263,7 @@ public class MyFragment extends BaseFragment implements OnClickListener{
 									save("nick_name", memberObj.getNick_name());
 									save("cover", memberObj.getCover());
 									save("community_id", memberObj.getCommunity_id());
+									save("community_name", memberObj.getCommunity_name());
 									save("sex", memberObj.getSex());
 									save("weight", memberObj.getWeight());
 									save("geyan", memberObj.getGeyan());

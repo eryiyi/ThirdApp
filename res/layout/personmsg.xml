@@ -77,7 +77,6 @@
                           android:layout_marginTop="20dp"
                           android:layout_height="wrap_content"/>
                 <TextView android:layout_width="wrap_content"
-                          android:text="13181038186"
                           android:id="@+id/zhanghao"
                           android:layout_alignParentRight="true"
                           android:layout_centerVertical="true"
@@ -101,7 +100,6 @@
                           android:layout_marginTop="20dp"
                           android:layout_height="wrap_content"/>
                 <TextView android:layout_width="wrap_content"
-                          android:text="13181038186"
                           android:id="@+id/xiaoqu"
                           android:layout_alignParentRight="true"
                           android:layout_centerVertical="true"
@@ -125,7 +123,6 @@
                           android:layout_marginTop="20dp"
                           android:layout_height="wrap_content"/>
                 <TextView android:layout_width="wrap_content"
-                          android:text="13181038186"
                           android:id="@+id/nicheng"
                           android:layout_alignParentRight="true"
                           android:layout_centerVertical="true"
@@ -151,7 +148,6 @@
                           android:layout_marginTop="20dp"
                           android:layout_height="wrap_content"/>
                 <TextView android:layout_width="wrap_content"
-                          android:text="13181038186"
                           android:drawablePadding="8dp"
                           android:drawableRight="@drawable/arrowright"
                           android:id="@+id/age"
@@ -177,7 +173,6 @@
                           android:layout_marginTop="20dp"
                           android:layout_height="wrap_content"/>
                 <TextView android:layout_width="wrap_content"
-                          android:text="13181038186"
                           android:id="@+id/sex"
                           android:drawablePadding="8dp"
                           android:drawableRight="@drawable/arrowright"
@@ -203,7 +198,6 @@
                           android:layout_marginTop="20dp"
                           android:layout_height="wrap_content"/>
                 <TextView android:layout_width="wrap_content"
-                          android:text="13181038186"
                           android:id="@+id/weight"
                           android:drawablePadding="8dp"
                           android:drawableRight="@drawable/arrowright"
@@ -229,7 +223,6 @@
                           android:layout_marginTop="20dp"
                           android:layout_height="wrap_content"/>
                 <TextView android:layout_width="wrap_content"
-                          android:text="13181038186"
                           android:id="@+id/geyan"
                           android:drawablePadding="8dp"
                           android:drawableRight="@drawable/arrowright"
@@ -255,7 +248,6 @@
                           android:layout_marginTop="20dp"
                           android:layout_height="wrap_content"/>
                 <TextView android:layout_width="wrap_content"
-                          android:text="13181038186"
                           android:id="@+id/home"
                           android:drawablePadding="8dp"
                           android:drawableRight="@drawable/arrowright"
@@ -281,7 +273,6 @@
                           android:layout_marginTop="20dp"
                           android:layout_height="wrap_content"/>
                 <TextView android:layout_width="wrap_content"
-                          android:text="13181038186"
                           android:id="@+id/email"
                           android:drawablePadding="8dp"
                           android:drawableRight="@drawable/arrowright"
@@ -297,35 +288,10 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@color/divider_color" />
-            <RelativeLayout android:layout_width="match_parent"
-                            android:background="@drawable/layout_selector"
-                            android:layout_height="wrap_content">
-                <TextView android:layout_width="wrap_content"
-                          android:text="QQ："
-                          android:layout_centerVertical="true"
-                          android:layout_marginLeft="10dp"
-                          android:layout_marginTop="20dp"
-                          android:layout_height="wrap_content"/>
-                <TextView android:layout_width="wrap_content"
-                          android:text="13181038186"
-                          android:id="@+id/qq"
-                          android:layout_alignParentRight="true"
-                          android:layout_centerVertical="true"
-                          android:layout_marginRight="10dp"
-                          android:layout_marginTop="20dp"
-                          android:drawablePadding="8dp"
-                          android:drawableRight="@drawable/arrowright"
-                          android:layout_height="wrap_content"/>
-            </RelativeLayout>
-            <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/divider_color" />
 
             <RelativeLayout
                     android:id="@+id/propertyphone"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/layout_selector" >
@@ -338,15 +304,14 @@
                         android:layout_marginTop="20dp"
                         android:text="@string/propertyphone" />
 
-                <ImageView
+                <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/telwuye"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="10dp"
-                        android:contentDescription="@color/transparent"
-                        android:scaleY="0.9"
-                        android:src="@drawable/arrowright" />
+                       android:text="131"/>
             </RelativeLayout>
 
             <View

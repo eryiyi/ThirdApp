@@ -121,6 +121,7 @@
         <activity android:name="com.example.thirdapp.activity.ImageDelActivity" android:windowSoftInputMode="adjustResize"  android:screenOrientation="portrait"/>
         <activity android:name="com.example.thirdapp.activity.PublishPicActivity" android:windowSoftInputMode="adjustResize"  android:screenOrientation="portrait"/>
         <activity android:name="com.example.thirdapp.activity.AboutUsActivity" android:windowSoftInputMode="adjustResize"  android:screenOrientation="portrait"/>
+        <activity android:name="com.example.thirdapp.activity.DetailGoodsActivity" android:windowSoftInputMode="adjustResize"  android:screenOrientation="portrait"/>
 
 
         <meta-data android:value="5667c74be0f55a5da90033ee" android:name="UMENG_APPKEY"></meta-data>

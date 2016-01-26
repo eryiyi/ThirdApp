@@ -73,6 +73,7 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 	private TextView comprice;//jiage
 	private TextView comprcieoriginal;//jiage
 
+
 	//底部
 	private ImageView add_cart;//加入
 	private TextView number ;//数量
@@ -116,6 +117,7 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 		comprice = (TextView) this.findViewById(R.id.comprice);
 		comprcieoriginal = (TextView) this.findViewById(R.id.comprcieoriginal);
 
+
 		add_cart = (ImageView) this.findViewById(R.id.add_cart);
 		number = (TextView) this.findViewById(R.id.number);
 		add_cart.setOnClickListener(this);
@@ -128,6 +130,7 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 		comment = (ImageView) this.findViewById(R.id.comment);
 		mine_favour_img.setOnClickListener(this);
 		comment.setOnClickListener(this);
+		this.findViewById(R.id.detail).setOnClickListener(this);
 	}
 
 	void getDataById(){
@@ -245,6 +248,7 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 		comprcieoriginal.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG |Paint.ANTI_ALIAS_FLAG);
 		comprcieoriginal.setText("原价:￥"+(hotGoodsObj.getPrice()==null?"":hotGoodsObj.getPrice()));
 
+
 	}
 	@Override
 	public void onClick(View v) {
@@ -337,6 +341,12 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 					intent.putExtra("skip", 1);
 					startActivity(intent);
 				}
+				break;
+			case R.id.detail:
+				//contentstr
+				Intent detailV = new Intent(ComDetail.this, DetailGoodsActivity.class);
+				detailV.putExtra("contentstr", (hotGoodsObj.getInfo()==null?"":hotGoodsObj.getInfo()));
+				startActivity(detailV);
 				break;
 		default:
 			break;

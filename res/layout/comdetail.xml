@@ -27,9 +27,18 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:padding="10dp"
+            android:id="@+id/titlemine"
             android:text="@string/commodity"
             android:textSize="16sp" />
-
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
+                android:id="@+id/detail"
+                android:layout_toRightOf="@+id/titlemine"
+                android:text="详情"
+                android:textSize="16sp" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -248,6 +257,7 @@
 
                 <ImageView
                     android:id="@+id/share"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@id/comsale"
@@ -372,9 +382,6 @@
                     android:layout_alignBottom="@id/comprcieoriginal"
                     android:background="@color/divider_color" />
             </RelativeLayout>
-
-
-
 
 
             <com.example.thirdapp.view.MyListView
