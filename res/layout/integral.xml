@@ -38,6 +38,7 @@
             android:contentDescription="@color/transparent"
             android:padding="10dp"
             android:scaleX="0.8"
+            android:visibility="gone"
             android:scaleY="0.9"
             android:src="@drawable/menu" />
     </RelativeLayout>
@@ -45,6 +46,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:background="@color/common_grey"
         android:paddingBottom="12dp"
         android:paddingTop="12dp" >

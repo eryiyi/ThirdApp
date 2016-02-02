@@ -220,10 +220,10 @@ public class SelectCommunityTwoActivity extends BaseActivity implements OnClickL
 			@Override
 			protected Map<String, String> getParams() throws AuthFailureError {
 				Map<String, String> params = new HashMap<String, String>();
-//				params.put("lat",  String.valueOf(ThirdApplication.lat));
-				params.put("lat",  "31");
-//				params.put("lng",  String.valueOf(ThirdApplication.lon));
-				params.put("lng",  "121");
+				params.put("lat",  String.valueOf(ThirdApplication.lat));
+//				params.put("lat",  "31");
+				params.put("lng",  String.valueOf(ThirdApplication.lon));
+//				params.put("lng",  "121");
 				return params;
 			}
 

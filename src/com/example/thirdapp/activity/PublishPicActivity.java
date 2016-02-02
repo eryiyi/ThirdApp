@@ -195,7 +195,7 @@ public class PublishPicActivity extends BaseActivity implements View.OnClickList
             params.put("user_name", getGson().fromJson(getSp().getString("mobile", ""), String.class));
             CommonUtil.addPutUploadFileRequest(
                     this,
-                    InternetURL.UPDATE_MEMBER_URL,
+                    InternetURL.SHOW_ADD_URL,
                     files,
                     params,
                     new Response.Listener<String>() {

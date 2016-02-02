@@ -6,6 +6,7 @@
     
 	<RelativeLayout 
 	    android:layout_width="match_parent"
+		android:visibility="gone"
 	    android:layout_height="wrap_content"
 	    android:background="@color/common_grey"
 	    android:padding="8dp">
@@ -24,7 +25,7 @@
 	        android:layout_alignParentRight="true"/>
 	</RelativeLayout>
 	
-	<com.example.thirdapp.view.MyListViewUpDown
+	<ListView
         android:id="@+id/valueagainstlv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -119,5 +119,9 @@ public class InternetURL {
     public static final String SHOW_LISTS_URL = INTERNAL + "show/lists";
     // 、 晒 范 前三( ( get
     public static final String SHOW_LISTS_TOP_URL = INTERNAL + "show/getTopList";
+    //积分商城产品 (
+    public static final String SCORELIST_URL = INTERNAL + "product/scoreList";
+    //积分商城兑换( (e e
+    public static final String EXCHANGE_URL = INTERNAL + "product/exchange";
 
 }

@@ -25,6 +25,7 @@
 
     <TextView
         android:id="@+id/valimited"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/vaname"
@@ -48,6 +49,7 @@
      
      <TextView
         android:id="@+id/vapriceoriginal"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="2dp"
@@ -61,6 +63,7 @@
      
      <ImageView 
          android:layout_width="60dp"
+         android:id="@+id/duihuan"
          android:layout_height="25dp"
          android:contentDescription="@color/transparent"
          android:src="@drawable/wantagainst"
