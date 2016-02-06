@@ -290,12 +290,24 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 					saveFavour();
 				}else {
 					Intent intent = new Intent(ComDetail.this, Logon.class);
-					intent.putExtra("skip", 1);
 					startActivity(intent);
 				}
 				break;
 			case R.id.foot_dianpu:
 				//店铺
+				if ("1".equals(getGson().fromJson(getSp().getString("isLogin", ""), String.class))) {
+					//
+					progressDialog = new CustomProgressDialog(ComDetail.this, "", R.anim.frame_paopao);
+					progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+					progressDialog.setCancelable(false);
+					progressDialog.setIndeterminate(true);
+					progressDialog.show();
+					mine_favour_img.setClickable(false);
+					saveFavourShop();
+				}else {
+					Intent intent = new Intent(ComDetail.this, Logon.class);
+					startActivity(intent);
+				}
 				break;
 			case R.id.comment:
 				//点击了评论按钮
@@ -463,6 +475,64 @@ public class ComDetail extends BaseActivity implements OnClickListener{
 				Map<String, String> params = new HashMap<String, String>();
 				params.put("user_name", getGson().fromJson(getSp().getString("mobile", ""), String.class));
 				params.put("product_id", product_id);
+				return params;
+			}
+
+			@Override
+			public Map<String, String> getHeaders() throws AuthFailureError {
+				Map<String, String> params = new HashMap<String, String>();
+				params.put("Content-Type", "application/x-www-form-urlencoded");
+				return params;
+			}
+		};
+		getRequestQueue().add(request);
+	}
+
+
+	void saveFavourShop(){
+		StringRequest request = new StringRequest(
+				Request.Method.POST,
+				InternetURL.COLLECTION_SHOP_URL,
+				new Response.Listener<String>() {
+					@Override
+					public void onResponse(String s) {
+						if (StringUtil.isJson(s)) {
+							try {
+								JSONObject jo = new JSONObject(s);
+								String code =  jo.getString("code");
+								if(Integer.parseInt(code) == 200){
+									Toast.makeText(ComDetail.this, jo.getString("msg"), Toast.LENGTH_SHORT).show();
+								}else {
+									Toast.makeText(ComDetail.this, jo.getString("msg"), Toast.LENGTH_SHORT).show();
+								}
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
+						} else {
+							Toast.makeText(ComDetail.this, "操作失败，请稍后重试", Toast.LENGTH_SHORT).show();
+						}
+						if (progressDialog != null) {
+							progressDialog.dismiss();
+						}
+						mine_favour_img.setClickable(true);
+					}
+				},
+				new Response.ErrorListener() {
+					@Override
+					public void onErrorResponse(VolleyError volleyError) {
+						if (progressDialog != null) {
+							progressDialog.dismiss();
+						}
+						mine_favour_img.setClickable(true);
+						Toast.makeText(ComDetail.this, "操作失败，请稍后重试", Toast.LENGTH_SHORT).show();
+					}
+				}
+		) {
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String> params = new HashMap<String, String>();
+				params.put("user_name", getGson().fromJson(getSp().getString("mobile", ""), String.class));
+				params.put("shop_id", hotGoodsObj.getShop_id());
 				return params;
 			}
 

@@ -123,5 +123,7 @@ public class InternetURL {
     public static final String SCORELIST_URL = INTERNAL + "product/scoreList";
     //积分商城兑换( (e e
     public static final String EXCHANGE_URL = INTERNAL + "product/exchange";
+    // 、 商城 收藏
+    public static final String COLLECTION_SHOP_URL = INTERNAL + "product/shopCollect";
 
 }
