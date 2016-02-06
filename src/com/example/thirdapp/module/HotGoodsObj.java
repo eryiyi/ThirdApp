@@ -92,10 +92,19 @@ public class HotGoodsObj {
     private String province_id;
     private String city_id;
     private String area_id;
+    private String discount_type;
     private List<CommentObj> comment_data;
 
     public List<CommentObj> getComment_data() {
         return comment_data;
+    }
+
+    public String getDiscount_type() {
+        return discount_type;
+    }
+
+    public void setDiscount_type(String discount_type) {
+        this.discount_type = discount_type;
     }
 
     public void setComment_data(List<CommentObj> comment_data) {

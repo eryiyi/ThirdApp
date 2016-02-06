@@ -191,6 +191,8 @@ public class SelectCommunityTwoActivity extends BaseActivity implements OnClickL
 										listsAll.addAll(data.getData());
 										if(listsAll != null && listsAll.size()>0){
 											initLst();
+										}else {
+											getData2();
 										}
 								}else {
 									Toast.makeText(SelectCommunityTwoActivity.this, jo.getString("msg"), Toast.LENGTH_SHORT).show();
@@ -251,9 +253,77 @@ public class SelectCommunityTwoActivity extends BaseActivity implements OnClickL
 
 			adapter.notifyDataSetChanged();
 		}else {
-			no_collection.setVisibility(View.VISIBLE);
-			lstv.setVisibility(View.GONE);
+			for(Community community:listsAll){
+				lists.add(community);
+			}
+			no_collection.setVisibility(View.GONE);
+			lstv.setVisibility(View.VISIBLE);
+			adapter.notifyDataSetChanged();
 		}
+	}
+
+
+
+	public void getData2() {
+		StringRequest request = new StringRequest(
+				Request.Method.POST,
+				InternetURL.COMMUNITY_URL,
+				new Response.Listener<String>() {
+					@Override
+					public void onResponse(String s) {
+						if (StringUtil.isJson(s)) {
+							try {
+								JSONObject jo = new JSONObject(s);
+								String code =  jo.getString("code");
+								if(Integer.parseInt(code) == 200){
+									CommunityData data = getGson().fromJson(s, CommunityData.class);
+									listsAll.addAll(data.getData());
+									if(listsAll != null && listsAll.size()>0){
+										initLst();
+									}
+								}else {
+									Toast.makeText(SelectCommunityTwoActivity.this, jo.getString("msg"), Toast.LENGTH_SHORT).show();
+								}
+							} catch (JSONException e) {
+								e.printStackTrace();
+							}
+						} else {
+							Toast.makeText(SelectCommunityTwoActivity.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
+						}
+
+						if (progressDialog != null) {
+							progressDialog.dismiss();
+						}
+					}
+				},
+				new Response.ErrorListener() {
+					@Override
+					public void onErrorResponse(VolleyError volleyError) {
+						if (progressDialog != null) {
+							progressDialog.dismiss();
+						}
+						Toast.makeText(SelectCommunityTwoActivity.this, R.string.get_data_error, Toast.LENGTH_SHORT).show();
+					}
+				}
+		) {
+			@Override
+			protected Map<String, String> getParams() throws AuthFailureError {
+				Map<String, String> params = new HashMap<String, String>();
+//				params.put("lat",  String.valueOf(ThirdApplication.lat));
+//				params.put("lat",  "31");
+//				params.put("lng",  String.valueOf(ThirdApplication.lon));
+//				params.put("lng",  "121");
+				return params;
+			}
+
+			@Override
+			public Map<String, String> getHeaders() throws AuthFailureError {
+				Map<String, String> params = new HashMap<String, String>();
+				params.put("Content-Type", "application/x-www-form-urlencoded");
+				return params;
+			}
+		};
+		getRequestQueue().add(request);
 	}
 
 }

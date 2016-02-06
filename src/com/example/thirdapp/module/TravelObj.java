@@ -1,26 +1,40 @@
 package com.example.thirdapp.module;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by Administrator on 2015/11/7.
  * "id": "226",
- "title": "标题",
- "content": "内容",
- "image": "",
+ "id": "229",
+ "title": "\u51b0\u5ddd\u98ce\u666f\u56fe",
+ "content": "
+ \u51b0\u5ddd\u98ce\u666f\u56fe\u7247 \u51b0\u5ddd\u98ce\u666f\u56fe\u7247 \u7011\u5e03\u5c71\u6c34\u98ce\u666f\u56fe\u7247 \u7011\u5e03\u5c71\u6c34\u98ce\u666f\u56fe\u7247 \u5c71\u6c34\u7011\u5e03\u98ce\u666f\u56fe\u7247 \u5c71\u6c34\u7011\u5e03\u98ce\u666f\u56fe\u7247 \u6d77\u8fb9\u5c0f\u5c4b\u56fe\u7247 \u6d77\u8fb9\u5c0f\u5c4b\u56fe\u7247 \u7eff\u8272<\/p>",
+ "image": "\/Uploads\/2016-02-05\/56b47ebc7de1f.jpg",
  "view_num": "0",
- "comment_num": "0",
- "collect_num": "0",
- "support_num": "0",
+ "comment_num": "1",
+ "collect_num": "1",
+ "support_num": "9",
  "type_id": "0",
- "tel": "",
- "lng": null,
- "lat": null,
+ "tel": "13266816551",
+ "lng": "0.000000",
+ "lat": "0.000000",
  "priority": "0",
  "is_top": "0",
- "register_date": "0",
+ "register_date": "2016-02-05 18:51:40",
+ "update_date": "0",
+ "is_del": "0",
+ "comment_data": [
+ {
+ "id": "229",
+ "trip_id": "229",
+ "user_name": "13266816551",
+ "content": "\u521a\u521a",
+ "register_date": "1454672520",
  "update_date": "0",
  "is_del": "0"
+ }
+ ]
  */
 public class TravelObj implements Serializable {
     private String id;
@@ -40,6 +54,16 @@ public class TravelObj implements Serializable {
     private String register_date;
     private String update_date;
     private String is_del;
+
+    private List<TravelCommentObj> comment_data;
+
+    public List<TravelCommentObj> getComment_data() {
+        return comment_data;
+    }
+
+    public void setComment_data(List<TravelCommentObj> comment_data) {
+        this.comment_data = comment_data;
+    }
 
     public String getId() {
         return id;

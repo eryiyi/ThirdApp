@@ -12,6 +12,7 @@ import com.example.thirdapp.adapter.AnimateFirstDisplayListener;
 import com.example.thirdapp.adapter.OnClickContentItemListener;
 import com.example.thirdapp.base.InternetURL;
 import com.example.thirdapp.module.HotGoodsObj;
+import com.example.thirdapp.util.StringUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
@@ -61,11 +62,12 @@ public class MyAdapter extends BaseAdapter{
 			viewHolder.image = (ImageView) view.findViewById(R.id.image);
 			viewHolder.carImg = (ImageView) view.findViewById(R.id.carImg);
 			viewHolder.imagebig = (ImageView) view.findViewById(R.id.imagebig);
+			viewHolder.promotioncom = (ImageView) view.findViewById(R.id.promotioncom);
 			view.setTag(viewHolder);
 		} else {
 			viewHolder = (ViewHolder) view.getTag();
 		}
-		final HotGoodsObj mContent = list.get(position);
+		final HotGoodsObj hotGoodsObj = list.get(position);
 //		LinearLayout layout = (LinearLayout) view.findViewById(R.id.linear);
 //		if (position == 0) {
 //			layout.setVisibility(View.VISIBLE);
@@ -89,20 +91,31 @@ public class MyAdapter extends BaseAdapter{
 //			}
 //		}
 
-		if(mContent != null){
-			imageLoader.displayImage(InternetURL.INTERNAL_PIC + mContent.getProduct_pic(), viewHolder.imagebig,
+		if(hotGoodsObj != null){
+			imageLoader.displayImage(InternetURL.INTERNAL_PIC + hotGoodsObj.getProduct_pic(), viewHolder.imagebig,
 					ThirdApplication.options, animateFirstListener);
 
-			String title = mContent.getProduct_name()==null?"":mContent.getProduct_name();
+			String title = hotGoodsObj.getProduct_name()==null?"":hotGoodsObj.getProduct_name();
 			if(title.length() >30){
 				title = title.substring(0,29);
 			}
 
 			viewHolder.tvTitle.setText(title);
 //		viewHolder.imagebig.setImageResource(list.get(position).getImageBig());
-			viewHolder.price.setText(mContent.getPrice_tuangou());
-			viewHolder.originalprice.setText(mContent.getPrice());
+			viewHolder.price.setText(hotGoodsObj.getPrice_tuangou());
+			viewHolder.originalprice.setText(hotGoodsObj.getPrice());
 			viewHolder.originalprice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG|Paint.ANTI_ALIAS_FLAG);
+
+			if(!StringUtil.isNullOrEmpty(hotGoodsObj.getDiscount_type())){
+				viewHolder.promotioncom.setVisibility(View.VISIBLE);
+				if("full_reduce".equals(hotGoodsObj.getDiscount_type())){
+					viewHolder.promotioncom.setImageDrawable(mContext.getResources().getDrawable(R.drawable.man1));
+				}if("reduce_20".equals(hotGoodsObj.getDiscount_type())){
+					viewHolder.promotioncom.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ershi));
+				}
+			}else {
+				viewHolder.promotioncom.setVisibility(View.GONE);
+			}
 
 			viewHolder.carImg.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -125,6 +138,7 @@ public class MyAdapter extends BaseAdapter{
 		ImageView image;
 		ImageView imagebig;
 		ImageView carImg;
+		ImageView promotioncom;
 		TextView price;
 		TextView originalprice;
 	}

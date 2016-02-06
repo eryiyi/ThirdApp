@@ -4,14 +4,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -20,11 +19,14 @@ import com.android.volley.toolbox.StringRequest;
 import com.example.thirdapp.R;
 import com.example.thirdapp.ThirdApplication;
 import com.example.thirdapp.adapter.AnimateFirstDisplayListener;
+import com.example.thirdapp.adapter.DetailCommentAdapter;
 import com.example.thirdapp.base.BaseActivity;
 import com.example.thirdapp.base.InternetURL;
+import com.example.thirdapp.module.TravelCommentObj;
 import com.example.thirdapp.module.TravelObj;
 import com.example.thirdapp.speek.JsonParser;
 import com.example.thirdapp.util.StringUtil;
+import com.example.thirdapp.view.ContentListView;
 import com.iflytek.cloud.speech.*;
 import com.iflytek.cloud.ui.RecognizerDialog;
 import com.iflytek.cloud.ui.RecognizerDialogListener;
@@ -32,10 +34,13 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class TravelDetail extends BaseActivity implements OnClickListener{
+public class TravelDetail extends BaseActivity implements OnClickListener , ContentListView.OnRefreshListener,
+		ContentListView.OnLoadListener{
 	private Toast mToast;
 	ImageView back;
 	ImageView speek;
@@ -43,6 +48,7 @@ public class TravelDetail extends BaseActivity implements OnClickListener{
 	private RecognizerDialog iatDialog;
 	private SpeechSynthesizer mSpeechSynthesizer;
 	private static final String APP_ID = "appid=53364cbc";
+
 
 	private TravelObj travel;
 	private TextView name;
@@ -56,6 +62,11 @@ public class TravelDetail extends BaseActivity implements OnClickListener{
 	ImageLoader imageLoader = ImageLoader.getInstance();//图片加载类
 	private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
 
+	private ContentListView detail_lstv;
+	private int pageIndex = 1;
+	private LinearLayout commentLayout;//头部
+	private DetailCommentAdapter adapter;
+	List<TravelCommentObj> listsComment = new ArrayList<TravelCommentObj>();
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -72,21 +83,40 @@ public class TravelDetail extends BaseActivity implements OnClickListener{
 //		SpeechUser.getUser().login(TravelDetail.this, null, null, APP_ID, listener);
 		speek.setOnClickListener(this);
 		back.setOnClickListener(this);
+		detail_lstv = (ContentListView) this.findViewById(R.id.lstv);
 
-		name = (TextView)this.findViewById(R.id.name);
-		datetime = (TextView)this.findViewById(R.id.datetime);
-		collection = (TextView)this.findViewById(R.id.collection);
-		browse = (TextView)this.findViewById(R.id.browse);
-		content = (TextView)this.findViewById(R.id.content);
-		img = (ImageView)this.findViewById(R.id.img);
-		collectionImg = (ImageView)this.findViewById(R.id.collectionImg);
+		commentLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.traveldetail_header, null);
+		name = (TextView)commentLayout.findViewById(R.id.name);
+		datetime = (TextView)commentLayout.findViewById(R.id.datetime);
+		collection = (TextView)commentLayout.findViewById(R.id.collection);
+		browse = (TextView)commentLayout.findViewById(R.id.browse);
+		content = (TextView)commentLayout.findViewById(R.id.content);
+		img = (ImageView)commentLayout.findViewById(R.id.img);
+		collectionImg = (ImageView)commentLayout.findViewById(R.id.collectionImg);
+
+
+		adapter = new DetailCommentAdapter(this, listsComment);
+//		adapter.setOnClickContentItemListener(this);
+		detail_lstv.addHeaderView(commentLayout);//添加头部
+//        detail_lstv.addFooterView(commentLayoutfoot);
+		detail_lstv.setAdapter(adapter);
+		detail_lstv.setOnRefreshListener(this);
+		detail_lstv.setOnLoadListener(this);
+//        detail_lstv.setLoadEnable(true);
+		detail_lstv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			}
+		});
+
+
+
 		commentImg = (ImageView)this.findViewById(R.id.commentImg);
-
 		name.setText(travel.getTitle()==null?"":travel.getTitle());
 		browse.setText("浏览:"+(travel.getView_num()==null?"":travel.getView_num()));
 		datetime.setText((travel.getRegister_date()==null?"":travel.getRegister_date()));
 		collection.setText(travel.getCollect_num()==null?"0":travel.getCollect_num());
-		content.setText(travel.getContent()==null?"":travel.getContent());
+		content.setText(Html.fromHtml(travel.getContent()==null?"":travel.getContent()));
 		imageLoader.displayImage(InternetURL.INTERNAL_PIC + travel.getImage(), img, ThirdApplication.options, animateFirstListener);
 
 		this.findViewById(R.id.navigation).setOnClickListener(this);
@@ -94,6 +124,39 @@ public class TravelDetail extends BaseActivity implements OnClickListener{
 		this.findViewById(R.id.heart).setOnClickListener(this);
 		collectionImg.setOnClickListener(this);
 		commentImg.setOnClickListener(this);
+
+		loadData(ContentListView.REFRESH);
+	}
+
+	/**
+	 * 加载数据监听实现
+	 */
+	@Override
+	public void onLoad() {
+		pageIndex++;
+		loadData(ContentListView.LOAD);
+	}
+
+	/**
+	 * 刷新数据监听实现
+	 */
+	@Override
+	public void onRefresh() {
+		pageIndex = 1;
+		loadData(ContentListView.REFRESH);
+	}
+
+	private void loadData(final int currentid) {
+		detail_lstv.onRefreshComplete();
+		detail_lstv.onLoadComplete();
+
+		listsComment.clear();
+		if(travel.getComment_data() != null){
+			listsComment.addAll(travel.getComment_data());
+			detail_lstv.setResultSize(travel.getComment_data().size());
+		}
+
+		adapter.notifyDataSetChanged();
 	}
 
 	@Override
@@ -122,11 +185,16 @@ public class TravelDetail extends BaseActivity implements OnClickListener{
 			break;
 		case R.id.commentImg:
 			//评论
-			if(StringUtil.isNullOrEmpty(edit.getText().toString())){
-				showMsg(TravelDetail.this, "请输入评论内容");
-				return;
+			if ("1".equals(getGson().fromJson(getSp().getString("isLogin", ""), String.class))) {
+				if(StringUtil.isNullOrEmpty(edit.getText().toString())){
+					showMsg(TravelDetail.this, "请输入评论内容");
+					return;
+				}
+				addComment();
+			}else {
+				Intent intent = new Intent(TravelDetail.this, Logon.class);
+				startActivity(intent);
 			}
-			addComment();
 			break;
 		default:
 			break;
@@ -147,6 +215,7 @@ public class TravelDetail extends BaseActivity implements OnClickListener{
 								if(Integer.parseInt(code1) == 200){
 									Toast.makeText(TravelDetail.this, "评论成功", Toast.LENGTH_SHORT).show();
 									edit.setText("");
+									loadData(ContentListView.REFRESH);
 								}else {
 									Toast.makeText(TravelDetail.this, jo.getString("msg"), Toast.LENGTH_SHORT).show();
 								}

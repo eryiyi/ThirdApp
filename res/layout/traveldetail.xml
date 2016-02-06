@@ -39,6 +39,7 @@
             android:layout_marginRight="10dp"
             android:contentDescription="@color/transparent"
             android:padding="10dp"
+            android:visibility="gone"
             android:scaleX="0.8"
             android:scaleY="0.9"
             android:src="@drawable/menu" />
@@ -102,169 +103,172 @@
         </LinearLayout>
     </LinearLayout>
 
-    <com.example.thirdapp.view.ReboundScrollView
-        android:id="@+id/scrollview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/bottom"
-        android:layout_below="@id/title" >
+    <com.example.thirdapp.view.ContentListView android:layout_width="match_parent"
+              android:id="@+id/lstv"
+            android:layout_above="@id/bottom"
+            android:layout_below="@id/title"
+              android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/greyelse"
-            android:orientation="vertical" >
+    </com.example.thirdapp.view.ContentListView>
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_above="@id/bottom"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@id/title"-->
+            <!--android:background="@color/greyelse"-->
+            <!--android:orientation="vertical" >-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal" >-->
 
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5" >
+                <!--<RelativeLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="5" >-->
 
-                    <TextView
-                        android:id="@+id/name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="3dp"
-                        android:text="@string/demo" />
+                    <!--<TextView-->
+                        <!--android:id="@+id/name"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="8dp"-->
+                        <!--android:layout_marginTop="3dp"-->
+                        <!--android:text="@string/demo" />-->
 
-                    <TextView
-                        android:id="@+id/datetime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/name"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="1dp"
-                        android:text="@string/demo"
-                        android:textColor="@color/common_greythird"
-                        android:textSize="12sp" />
+                    <!--<TextView-->
+                        <!--android:id="@+id/datetime"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_below="@id/name"-->
+                        <!--android:layout_marginLeft="8dp"-->
+                        <!--android:layout_marginTop="1dp"-->
+                        <!--android:text="@string/demo"-->
+                        <!--android:textColor="@color/common_greythird"-->
+                        <!--android:textSize="12sp" />-->
 
-                    <TextView
-                        android:id="@+id/browse"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/name"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="1dp"
-                        android:layout_toRightOf="@id/datetime"
-                        android:text="@string/demo"
-                        android:textColor="@color/common_greythird"
-                        android:textSize="12sp" />
-                </RelativeLayout>
+                    <!--<TextView-->
+                        <!--android:id="@+id/browse"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_below="@id/name"-->
+                        <!--android:layout_marginLeft="8dp"-->
+                        <!--android:layout_marginTop="1dp"-->
+                        <!--android:layout_toRightOf="@id/datetime"-->
+                        <!--android:text="@string/demo"-->
+                        <!--android:textColor="@color/common_greythird"-->
+                        <!--android:textSize="12sp" />-->
+                <!--</RelativeLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/heart"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical" >
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/heart"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:orientation="vertical" >-->
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/collectionImg"
-                        android:layout_gravity="center"
-                        android:contentDescription="@color/transparent"
-                        android:scaleX="0.8"
-                        android:scaleY="0.8"
-                        android:src="@drawable/heart" />
+                    <!--<ImageView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:id="@+id/collectionImg"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:contentDescription="@color/transparent"-->
+                        <!--android:scaleX="0.8"-->
+                        <!--android:scaleY="0.8"-->
+                        <!--android:src="@drawable/heart" />-->
 
-                    <TextView
-                        android:id="@+id/collection"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="1dp"
-                        android:text="@string/num1"
-                        android:textColor="@color/common_greythird"
-                        android:textSize="12sp" />
-                </LinearLayout>
+                    <!--<TextView-->
+                        <!--android:id="@+id/collection"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:layout_marginTop="1dp"-->
+                        <!--android:text="@string/num1"-->
+                        <!--android:textColor="@color/common_greythird"-->
+                        <!--android:textSize="12sp" />-->
+                <!--</LinearLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/navigation"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical" >
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/navigation"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:visibility="gone"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:orientation="vertical" >-->
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:contentDescription="@color/transparent"
-                        android:scaleX="0.8"
-                        android:scaleY="0.7"
-                        android:src="@drawable/navigation" />
+                    <!--<ImageView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:contentDescription="@color/transparent"-->
+                        <!--android:scaleX="0.8"-->
+                        <!--android:scaleY="0.7"-->
+                        <!--android:src="@drawable/navigation" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="@string/navigation"
-                        android:textColor="@color/common_greythird"
-                        android:textSize="12sp" />
-                </LinearLayout>
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:text="@string/navigation"-->
+                        <!--android:textColor="@color/common_greythird"-->
+                        <!--android:textSize="12sp" />-->
+                <!--</LinearLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/phone"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical" >
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/phone"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:visibility="gone"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:orientation="vertical" >-->
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:contentDescription="@color/transparent"
-                        android:scaleX="0.8"
-                        android:scaleY="0.8"
-                        android:src="@drawable/phone" />
+                    <!--<ImageView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:contentDescription="@color/transparent"-->
+                        <!--android:scaleX="0.8"-->
+                        <!--android:scaleY="0.8"-->
+                        <!--android:src="@drawable/phone" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/phone"
-                        android:textColor="@color/common_greythird"
-                        android:textSize="12sp" />
-                </LinearLayout>
-            </LinearLayout>
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:layout_marginTop="2dp"-->
+                        <!--android:text="@string/phone"-->
+                        <!--android:textColor="@color/common_greythird"-->
+                        <!--android:textSize="12sp" />-->
+                <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0.0005dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="3dp"
-                android:background="@color/black" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0.0005dp"-->
+                <!--android:layout_marginLeft="8dp"-->
+                <!--android:layout_marginRight="8dp"-->
+                <!--android:layout_marginTop="3dp"-->
+                <!--android:background="@color/black" />-->
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:id="@+id/img"
-                android:layout_marginTop="8dp"
-                android:contentDescription="@color/transparent"
-                android:scaleType="fitXY"
-                android:src="@drawable/demo" />
+            <!--<ImageView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_marginRight="5dp"-->
+                <!--android:id="@+id/img"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:contentDescription="@color/transparent"-->
+                <!--android:scaleType="fitXY"-->
+                <!--android:src="@drawable/demo" />-->
 
-            <TextView
-                android:id="@+id/content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/demo" />
-        </LinearLayout>
-    </com.example.thirdapp.view.ReboundScrollView>
+            <!--<TextView-->
+                <!--android:id="@+id/content"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_marginRight="5dp"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:text="@string/demo" />-->
+        <!--</LinearLayout>-->
 
 </RelativeLayout>

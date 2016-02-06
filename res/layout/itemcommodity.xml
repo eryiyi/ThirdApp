@@ -57,7 +57,7 @@
         android:padding="2dp"
         android:src="@drawable/democom1" />
 
-    <TextView
+    <ImageView
         android:id="@+id/promotioncom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,12 +65,11 @@
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/imagebig"
         android:layout_below="@id/linear"
-        android:background="@drawable/promotionshape"
         android:paddingBottom="1dp"
         android:paddingLeft="3dp"
         android:paddingRight="3dp"
         android:paddingTop="1dp"
-        android:text="@string/demo"
+        android:src="@drawable/man1"
         android:textColor="@color/redstandard"
         android:textSize="10sp" />
 
